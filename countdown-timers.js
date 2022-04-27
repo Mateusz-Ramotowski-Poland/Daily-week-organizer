@@ -12,26 +12,31 @@
 //alert('work');  it's connected with index.html
 const timers = [];
 
-function setTimer(time, timerNumber, nodeTimer){
-    setInterval(function (time, timerNumber, nodeTimer) {
-        if (time === 0) {
-          clearInterval(timers[timerNumber]);
-        }
-        time--;
-        showTime(time, nodeTimer)
-      }, 1000, time, timerNumber, nodeTimer);
-}
-
-function showTime(time, nodeTimer){
-    const minutes = `${Math.trunc(time / 60)}`.padStart(2, '0');
-    const seconds = `${time % 60}`.padStart(2, '0');
-    nodeTimer.textContent = `${minutes}:${seconds}`;
+function showTime(time, nodeTimer) {
+  const minutes = `${Math.trunc(time / 60)}`.padStart(2, "0");
+  const seconds = `${time % 60}`.padStart(2, "0");
+  nodeTimer.textContent = `${minutes}:${seconds}`;
 }
 
 document.querySelector(".timers").addEventListener("click", function (event) {
-  console.log("timer");
-  console.dir(event.target);
-  if (event.target.classList.contains("timer")) { //Here I use Event delegation
+  if (event.target.classList.contains("timer")) {//Here I use Event delegation
+    function setTimer() {
+      return setInterval(
+        function () {
+          if (time === 1) {
+            clearInterval(timers[timerNumber]);
+            timers[timerNumber] = null;
+          }
+          time--;
+          showTime(time, nodeTimer);
+        },
+        1000,
+        time,
+        timerNumber,
+        nodeTimer
+      );
+    }
+
     let timerNumber;
 
     for (let i = 0; i < event.currentTarget.children.length; i++) {
@@ -42,12 +47,12 @@ document.querySelector(".timers").addEventListener("click", function (event) {
     }
     // wybierz element p wewnątrz event.target
     const nodeTimer = event.target.querySelector(".timer-time");
-    let time = 0.2 * 60; // 1 minutes
-    showTime(time, nodeTimer)
-    if (timers[timerNumber]){
-        clearInterval(timers[timerNumber]);
-    }else{
-        timers[timerNumber] = setTimer(time, timerNumber, nodeTimer);
+    let time = 1 *(timerNumber+1) * 60; // different time for every timer
+    showTime(time, nodeTimer);
+    if (timers[timerNumber]) {
+      clearInterval(timers[timerNumber]);
+      timers[timerNumber] = null;
     }
+    timers[timerNumber] = setTimer();
   }
 });
