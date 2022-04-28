@@ -8,8 +8,22 @@
 // use get/   verbs in function name
 // use inputs instead of prompt
 // in function name - write what it do not how it do
-//////////////////////////////////////////////////////////////
-//alert('work');  it's connected with index.html
+///////////////////////////////////////////////////////////////
+const nodeTimers = document.getElementsByClassName("timer"); // return HTML live collection
+const nodeTimerClean = document.querySelectorAll(".timer"); // clean timer = without any data inside
+const nodeTimersSection = document.querySelector(".timers");
+
+document.querySelector(".add-timer").addEventListener("click", function () {
+  if (nodeTimers.length < 10) {
+    nodeTimersSection.append(nodeTimerClean[0].cloneNode(true));
+  }
+});
+document.querySelector(".delete-timer").addEventListener("click", function () {
+  if (nodeTimers.length > 1) {
+    nodeTimers.item(nodeTimers.length - 1).remove();
+  }
+});
+
 const timers = [];
 
 function showTime(time, nodeTimer) {
@@ -18,23 +32,23 @@ function showTime(time, nodeTimer) {
   nodeTimer.textContent = `${minutes}:${seconds}`;
 }
 
+function deleteTimer(timerNumber) {
+  clearInterval(timers[timerNumber]);
+  timers[timerNumber] = null;
+}
+
 document.querySelector(".timers").addEventListener("click", function (event) {
-  if (event.target.classList.contains("timer")) {//Here I use Event delegation
+  if (event.target.classList.contains("timer")) {
+    //Here I use Event delegation
     function setTimer() {
-      return setInterval(
-        function () {
-          if (time === 1) {
-            clearInterval(timers[timerNumber]);
-            timers[timerNumber] = null;
-          }
-          time--;
-          showTime(time, nodeTimer);
-        },
-        1000,
-        time,
-        timerNumber,
-        nodeTimer
-      );
+      // I put function declaration here to use closure
+      return setInterval(function () {
+        time--;
+        showTime(time, nodeTimer);
+        if (time === 0) {
+          deleteTimer(timerNumber);
+        }
+      }, 1000);
     }
 
     let timerNumber;
@@ -45,13 +59,12 @@ document.querySelector(".timers").addEventListener("click", function (event) {
         break;
       }
     }
-    // wybierz element p wewnątrz event.target
+
     const nodeTimer = event.target.querySelector(".timer-time");
-    let time = 1 *(timerNumber+1) * 60; // different time for every timer
+    let time = Math.trunc(1 * timerNumber * 60); // different time for every timer; there was problem with fraction numbers (trunc fixed it)
     showTime(time, nodeTimer);
     if (timers[timerNumber]) {
-      clearInterval(timers[timerNumber]);
-      timers[timerNumber] = null;
+      deleteTimer(timerNumber);
     }
     timers[timerNumber] = setTimer();
   }
