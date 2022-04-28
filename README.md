@@ -1,5 +1,5 @@
-# Daily organizer
-It's my own project. I made it from scratch.  Live demo: [_here_]().
+# Daily-week-organizer
+It's my own project. I made it from scratch. Live demo: [_here_](https://mateusz-ramotowski-poland.github.io/Daily-week-organizer/).
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -10,7 +10,7 @@ It's my own project. I made it from scratch.  Live demo: [_here_]().
 * [Contact](#contact)
 
 ## General Information
-It will be an application helpful in organizing the day. I will write more about it soon.
+It will be an application helpful in organizing the day/week. I will write more about it soon.
 
 ## Technologies Used
 Project is created with:
