@@ -9,7 +9,20 @@
 // use inputs instead of prompt
 // in function name - write what it do not how it do
 ///////////////////////////////////////////////////////////////
-document.querySelector('.add-timer').addEventListener('click')
+const nodeTimers = document.getElementsByClassName("timer"); // return HTML live collection
+const nodeTimerClean = document.querySelectorAll(".timer"); // clean timer = without any data inside
+const nodeTimersSection = document.querySelector(".timers");
+
+document.querySelector(".add-timer").addEventListener("click", function () {
+  if (nodeTimers.length < 10) {
+    nodeTimersSection.append(nodeTimerClean[0].cloneNode(true));
+  }
+});
+document.querySelector(".delete-timer").addEventListener("click", function () {
+  if (nodeTimers.length > 1) {
+    nodeTimers.item(nodeTimers.length - 1).remove();
+  }
+});
 
 const timers = [];
 
@@ -48,7 +61,7 @@ document.querySelector(".timers").addEventListener("click", function (event) {
     }
 
     const nodeTimer = event.target.querySelector(".timer-time");
-    let time = Math.trunc(1 * (timerNumber + 1) * 60); // different time for every timer; there was problem with fraction numbers (trunc fixed it)
+    let time = Math.trunc(1 * timerNumber * 60); // different time for every timer; there was problem with fraction numbers (trunc fixed it)
     showTime(time, nodeTimer);
     if (timers[timerNumber]) {
       deleteTimer(timerNumber);
