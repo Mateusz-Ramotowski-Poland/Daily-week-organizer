@@ -35,6 +35,12 @@ Thanks [_Jonas Schmedtmann_](https://www.udemy.com/course/the-complete-javascrip
 Created by Mateusz Ramotowski (mateusz.ramotowski.praca@gmail.com) - feel free to contact me!
 
 <!-- WHAT I LEARNED?
+Ideas: 
+- to do list
+- communication with weather api
+- calculate how many hours I spent on programming per week - local storage or database
+- help to organizing my workouts
+- log in/log out
 
 DOM:
 - EVENT DELEGATION
