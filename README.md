@@ -20,9 +20,11 @@ Project is created with:
 
 I was using Chrome developer tools for testing my application.
 ## Features
-Version 1.2:
-- add/delete timer
+Version 1.3:
+- add/delete timer (min: 1 timer, max: 3 timers).
 - click to start the timer. Every timer has own static time.
+- when timer will reach zero You will hear the song.
+- play and pause song using buttons.
 
 ## Project Status
 Project in progress.
