@@ -48,7 +48,7 @@ DOM:
 - closure
 - adding/cloning/removing nodes 
 
-alfa  version 1.1:
+alfa branch master  version 1.1:
 -V 3 timery z różnymi stałymi czasami(1min, 2 min, 3min). Po kliknięciu na obszar timera timer liczy w dół od domyślnej wartości.
 
 beta  version 1.2
@@ -56,6 +56,16 @@ beta  version 1.2
 -V dodatkowo dodaj lub usuń ostatni timer (mogę dodać tyle timerów ilę chcę)
 
 version 1.3
-- add voice after timer reach 0;
+-V add voice after timer reach 0;
 - add button/buttons for setting the timer 
-- when you add timer it should be clean without data -->
+- Add modal window (form) for timer editing
+- Add modal window after time will reach 0
+- when you add timer it should be clean without data 
+- test how it works and refactor your code
+
+Version 1.4
+- make nice looking layout for it
+
+
+
+-->

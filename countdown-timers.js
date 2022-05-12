@@ -1,4 +1,5 @@
 "use strict";
+// now I write it in js. After I can rewrite it in react and TS - idea
 
 /////////////// notes from previous projects //////////////////
 // try not to use global variabes
@@ -13,27 +14,28 @@ const nodeTimers = document.getElementsByClassName("timer"); // return HTML live
 const nodeTimerClean = document.querySelectorAll(".timer"); // clean timer = without any data inside
 const nodeTimersSection = document.querySelector(".timers");
 const timers = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created
-
-///////////////////////////////////////////////// play songs buttons
 const songAudio = new Audio("piosenka-jest-dobra-na-wszystko.mp3");
+///////////////////////////////////////////////// play songs buttons version
 
 document.querySelector(".play-song").addEventListener("click", function () {
   songAudio.play();
 });
 document.querySelector(".pause-song").addEventListener("click", function () {
   songAudio.pause();
+  /* songAudio.stop(); // you don't have method stop */
 });
 
 ////////////////////////////////////////////////////////////play songs buttons end
 
 document.querySelector(".add-timer").addEventListener("click", function () {
-  if (nodeTimers.length < 10) {
+  if (nodeTimers.length < 3) {
     nodeTimersSection.append(nodeTimerClean[0].cloneNode(true));
   }
 });
 document.querySelector(".delete-timer").addEventListener("click", function () {
   if (nodeTimers.length > 1) {
     nodeTimers.item(nodeTimers.length - 1).remove();
+    // you should also delete timers if they exist
   }
 });
 
@@ -49,7 +51,12 @@ function deleteTimer(timerNumber) {
 }
 
 document.querySelector(".timers").addEventListener("click", function (event) {
-  if (event.target.classList.contains("timer")) {
+  // start buttons
+  console.log(event.target);
+  console.log(event.currentTarget);
+  console.log(event.currentTarget.children);
+
+  if (event.target.classList.contains("btnStart")) {
     //Here I use Event delegation
     function setTimer() {
       // I put function declaration here to use closure
@@ -58,6 +65,7 @@ document.querySelector(".timers").addEventListener("click", function (event) {
         showTime(time, nodeTimer);
         if (time === 0) {
           deleteTimer(timerNumber);
+          songAudio.play();
         }
       }, 1000);
     }
@@ -65,13 +73,17 @@ document.querySelector(".timers").addEventListener("click", function (event) {
     let timerNumber;
 
     for (let i = 0; i < event.currentTarget.children.length; i++) {
-      if (event.currentTarget.children.item(i) === event.target) {
+      if (
+        event.currentTarget.children.item(i) === event.target.closest(".timer")
+      ) {
         timerNumber = i;
+        console.log(event.target.closest(".timer"));
         break;
       }
     }
-
-    const nodeTimer = event.target.querySelector(".timer-time"); // find p tag 
+    const nodeTimer = event.target
+      .closest(".timer")
+      .querySelector(".timer-time"); // find p tag
     let time = Math.trunc(1 * timerNumber * 60); // different time for every timer; there was problem with fraction numbers (trunc fixed it)
     showTime(time, nodeTimer);
     if (timers[timerNumber]) {
@@ -81,4 +93,29 @@ document.querySelector(".timers").addEventListener("click", function (event) {
   }
 });
 
+document.querySelector(".timers").addEventListener("click", function (event) {
+  // stop buttons
+  console.log(event.target);
+  console.log(event.currentTarget);
+  console.log(event.currentTarget.children);
+
+  if (event.target.classList.contains("btnReset")) {
+    //Here I use Event delegation
+    let timerNumber;
+
+    for (let i = 0; i < event.currentTarget.children.length; i++) {
+      if (
+        event.currentTarget.children.item(i) === event.target.closest(".timer")
+      ) {
+        timerNumber = i;
+        console.log(event.target.closest(".timer"));
+        break;
+      }
+    }
+
+    deleteTimer(timerNumber);
+    event.target.closest(".timer").querySelector(".timer-time").textContent =
+      "mm:ss";
+  }
+});
 
