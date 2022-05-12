@@ -12,6 +12,19 @@
 const nodeTimers = document.getElementsByClassName("timer"); // return HTML live collection
 const nodeTimerClean = document.querySelectorAll(".timer"); // clean timer = without any data inside
 const nodeTimersSection = document.querySelector(".timers");
+const timers = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created
+
+///////////////////////////////////////////////// play songs buttons
+const songAudio = new Audio("piosenka-jest-dobra-na-wszystko.mp3");
+
+document.querySelector(".play-song").addEventListener("click", function () {
+  songAudio.play();
+});
+document.querySelector(".pause-song").addEventListener("click", function () {
+  songAudio.pause();
+});
+
+////////////////////////////////////////////////////////////play songs buttons end
 
 document.querySelector(".add-timer").addEventListener("click", function () {
   if (nodeTimers.length < 10) {
@@ -23,8 +36,6 @@ document.querySelector(".delete-timer").addEventListener("click", function () {
     nodeTimers.item(nodeTimers.length - 1).remove();
   }
 });
-
-const timers = [];
 
 function showTime(time, nodeTimer) {
   const minutes = `${Math.trunc(time / 60)}`.padStart(2, "0");
@@ -60,7 +71,7 @@ document.querySelector(".timers").addEventListener("click", function (event) {
       }
     }
 
-    const nodeTimer = event.target.querySelector(".timer-time");
+    const nodeTimer = event.target.querySelector(".timer-time"); // find p tag 
     let time = Math.trunc(1 * timerNumber * 60); // different time for every timer; there was problem with fraction numbers (trunc fixed it)
     showTime(time, nodeTimer);
     if (timers[timerNumber]) {
@@ -69,3 +80,5 @@ document.querySelector(".timers").addEventListener("click", function (event) {
     timers[timerNumber] = setTimer();
   }
 });
+
+
