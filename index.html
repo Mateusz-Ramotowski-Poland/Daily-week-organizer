@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily organizer by Mateusz Ramotowski</title>
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="countdown-timers.js"></script>
+    <link rel="stylesheet" href="forms.css" />
+    <script defer type='module' src="countdown-timers.js"></script>
+    <script defer type='module' src="forms.js"></script>
+    
+  
   </head>
   <body>
     <header>
@@ -14,14 +18,15 @@
     </header>
 
     <main>
-      <section class="timers">
-        <div class="add-delete-timer">
+      <section class="add-delete-timer">
           <button class="add-timer">Add timer</button>
           <button class="delete-timer">delete timer</button>
           <button class="play-song">Play song</button>
           <button class="pause-song">Pause song</button>
-        </div>
+      </section>
+      <section class="timers"> 
         <div class="timer">
+          <p class="description"></p>
           <p class="timer-time">mm:ss</p>
           <section>
             <button class="btnEdit">Edit</button>
@@ -30,6 +35,34 @@
           </section>
         </div>
       </section>
+      <form action="" class="modal hidden">
+        <h2>Set timer</h2>
+        <div class="form-set-time">
+          <div>
+            <label for="minutes">Minutes</label>
+            <label for="seconds">Seconds</label>
+          </div>
+          <div>
+            <input type="number" id="minutes" max="60" min="0" name="minutes" />
+            <input type="number" id="seconds" max="60" min="0" name="seconds" />
+          </div>
+        </div>
+        <div class="form-set-description">
+          <div><label for="description">Timer Description</label></div>
+          <div><input type="text" id="description" name="name" /></div>
+        </div>
+        <select id="song-select" name="songs">
+          <option value="Piosenka jest dobra na wszystko">
+            Piosenka jest dobra na wszystko
+          </option>
+          <option value="Jak tu nie jechać">Jak tu nie jechać</option>
+        </select>
+        <div class="buttons">
+          <input class="form-start" type="button" value="start" />
+          <input class="form-cancel" type="button" value="cancel" />
+        </div>
+      </form>
+      <section class="overlay hidden"></section>
     </main>
 
     <footer>Mateusz Ramotowski</footer>

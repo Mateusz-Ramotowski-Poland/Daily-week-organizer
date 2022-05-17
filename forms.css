@@ -1,0 +1,7 @@
+form h2{
+    text-align: center;
+}
+.form-set-time, .form-set-description, form select, .buttons{
+    text-align: center;
+    margin-bottom: 20px;
+}

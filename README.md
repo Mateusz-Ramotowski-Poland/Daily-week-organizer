@@ -59,13 +59,14 @@ beta  version 1.2
 
 version 1.3
 -V add voice after timer reach 0;
-- add button/buttons for setting the timer 
-- Add modal window (form) for timer editing
-- Add modal window after time will reach 0
+
 -V when you add timer it should be clean without data 
-- test how it works and refactor your code
+-V test how it works and refactor your code
 
 Version 1.4
+-V add button/buttons for setting the timer 
+- Add modal window (form) for timer editing
+- Add modal window after time will reach 0
 - make nice looking layout for it
 
 
