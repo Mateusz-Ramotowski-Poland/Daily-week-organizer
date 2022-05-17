@@ -27,7 +27,9 @@ btnPauseSong.addEventListener("click", songAudio.pause.bind(songAudio));
 btnAddTimer.addEventListener("click", function () {
   if (!(nodeTimers.length < 3)) return;
 
-  nodeTimersSection.append(nodeTimers[0].cloneNode(true));
+  const emptyNodeTimer = nodeTimers[0].cloneNode(true);
+  emptyNodeTimer.querySelector('p').textContent = 'mm:ss'
+  nodeTimersSection.append(emptyNodeTimer.cloneNode(true));
 });
 btnDeleteTimer.addEventListener("click", function () {
   if (!(nodeTimers.length > 1)) return;

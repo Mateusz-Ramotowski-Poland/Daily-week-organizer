@@ -62,7 +62,7 @@ version 1.3
 - add button/buttons for setting the timer 
 - Add modal window (form) for timer editing
 - Add modal window after time will reach 0
-- when you add timer it should be clean without data 
+-V when you add timer it should be clean without data 
 - test how it works and refactor your code
 
 Version 1.4
