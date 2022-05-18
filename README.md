@@ -65,9 +65,14 @@ version 1.3
 
 Version 1.4
 -V add button/buttons for setting the timer 
-- Add modal window (form) for timer editing
+-V Add modal window (form) for timer editing
+- basic version of to-do-list(without local storage)
+- testing
 - Add modal window after time will reach 0
+- Testing
 - make nice looking layout for it
+- Testing
+
 
 
 

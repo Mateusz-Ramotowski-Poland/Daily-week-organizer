@@ -51,6 +51,12 @@ function deleteTimer(timerNumber) {
   clearInterval(timers[timerNumber]);
   timers[timerNumber] = null;
 }
+function calculateTime(nodeTimerPTag){
+  const minutes = parseInt(nodeTimerPTag.textContent.substring(0,2));
+  const seconds = parseInt(nodeTimerPTag.textContent.substring(3));
+  console.log(minutes, seconds);
+  return (minutes * 60 * 1000 + seconds * 1000);
+}
 nodeTimersSection.addEventListener("click", function (event) {
   if (!event.target.classList.contains("btnStart")) return;
   //Here I use Event delegation
@@ -71,7 +77,7 @@ nodeTimersSection.addEventListener("click", function (event) {
   const nodeTimerPTag = event.target
     .closest(".timer")
     .querySelector(".timer-time");
-  let timerSetTime = Math.trunc(20 * (parseInt(timerNumber)+1) * 60 * 1000); // time in ms; there was problem with fraction numbers (trunc fixed it)
+  let timerSetTime = calculateTime(nodeTimerPTag); // time in miliseconds
   showTime(timerSetTime, nodeTimerPTag);
   if (timers[timerNumber]) {
     deleteTimer(timerNumber);
