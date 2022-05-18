@@ -12,7 +12,7 @@ const addTaskArea = document.querySelector(".add-task-area");
 ////////////////////////////////////////////////////////////////////
 btnAddTask.addEventListener("click", function () {
   const newToDoElement = toDoElement.cloneNode(true);
-  newToDoElement.innerHTML = `${toDoDescriptionInput.value} <button class="btn-delete-task">delete exercise</button>`;
+  newToDoElement.innerHTML = `${toDoDescriptionInput.value} <button class="btn-delete-task">delete task</button>`;
   toDoElementsArea.append(newToDoElement);
 });
 toDoElementsArea.addEventListener('click', function(event){
