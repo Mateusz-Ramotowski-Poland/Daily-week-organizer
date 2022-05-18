@@ -17,12 +17,14 @@ const btnDeleteTimer = document.querySelector(".delete-timer");
 const btnPLaySong = document.querySelector(".play-song");
 const btnPauseSong = document.querySelector(".pause-song");
 
-const songAudio = new Audio("piosenka-jest-dobra-na-wszystko.mp3");
+export const songAudioKabaret = new Audio("piosenka-jest-dobra-na-wszystko.mp3");
+export const songAudioBeethoven = new Audio("beethoven-5th-symphony.mp3");
 
+export const timersSongs = [];
 const timers = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created
 ///////////////////////////////////////////////// play songs buttons version - I will delete this section
-btnPLaySong.addEventListener("click", songAudio.play.bind(songAudio));
-btnPauseSong.addEventListener("click", songAudio.pause.bind(songAudio));
+btnPLaySong.addEventListener("click", songAudioKabaret.play.bind(songAudioKabaret));
+btnPauseSong.addEventListener("click", songAudioKabaret.pause.bind(songAudioKabaret));
 ////////////////////////////////////////////////////////////play songs buttons end  I will delete this section
 btnAddTimer.addEventListener("click", function () {
   if (!(nodeTimers.length < 3)) return;
@@ -68,7 +70,7 @@ nodeTimersSection.addEventListener("click", function (event) {
       if (!(passedTime >= timerSetTime)) return;
 
       deleteTimer(timerNumber);
-      songAudio.play();
+      timersSongs[timerNumber].play();
     }, 1000);
   }
 
