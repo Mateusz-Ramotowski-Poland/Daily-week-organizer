@@ -20,13 +20,13 @@ Project is created with:
 
 I was using Chrome developer tools for testing my application.
 ## Features
-Version 1.3:
 Timer section:
 - Add/delete new timer buttons (min: 1 timer, max: 3 timers).
 - Click the start button to launch the timer.
 - Click the reset button to cancel the timer. 
 - When the timer will reach zero You will hear the song.
 - You can edit the timer: time, description, and song/ringtone.
+
 To-do-tasks section: 
 - Add new tasks
 - You can delete every task after completion
