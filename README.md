@@ -10,7 +10,7 @@ It's my own project. I made it from scratch. Live demo: [_here_](https://mateusz
 * [Contact](#contact)
 
 ## General Information
-It will be an application helpful in organizing the day/week. I will write more about it soon.
+It is an application helpful in organizing the day. 
 
 ## Technologies Used
 Project is created with:
@@ -21,13 +21,21 @@ Project is created with:
 I was using Chrome developer tools for testing my application.
 ## Features
 Version 1.3:
-- add/delete timer (min: 1 timer, max: 3 timers).
-- click to start the timer. Every timer has own static time.
-- when timer will reach zero You will hear the song.
-- play and pause song using buttons.
+Timer section:
+- Add/delete new timer buttons (min: 1 timer, max: 3 timers).
+- Click the start button to launch the timer.
+- Click the reset button to cancel the timer. 
+- When the timer will reach zero You will hear the song.
+- You can edit the timer: time, description, and song/ringtone.
+To-do-tasks section: 
+- Add new tasks
+- You can delete every task after completion
 
 ## Project Status
-Project in progress.
+Project in progress. What I will do next:
+- add new options to To-do-tasks section.
+- make nice looking responsive layout for the whole app.
+- ....I will think about what I need
 
 ## Acknowledgements
 Thanks [_Jonas Schmedtmann_](https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22648683?start=420#overview)
@@ -66,7 +74,7 @@ version 1.3
 Version 1.4
 -V add button/buttons for setting the timer 
 -V Add modal window (form) for timer editing
-- basic version of to-do-list(without local storage)
+-V basic version of to-do-list(without local storage)
 - testing
 - Add modal window after time will reach 0
 - Testing

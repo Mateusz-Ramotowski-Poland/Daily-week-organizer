@@ -1,5 +1,6 @@
-// now I write it in js. After I can rewrite it in react and TS - idea
-
+import {minNumberTimers} from './config.js'
+import {maxNumberTimers} from './config.js'
+import {baseTimerTime} from './config.js'
 /////////////// notes from previous projects //////////////////
 // try not to use global variabes
 //one function - one functionality
@@ -8,57 +9,36 @@
 // use get/   verbs in function name
 // use inputs instead of prompt
 // in function name - write what it do not how it do
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////Below all global variables///////////////////////////////////////////
 export const nodeTimers = document.getElementsByClassName("timer"); // return HTML live collection
 export const nodeTimersSection = document.querySelector(".timers"); // return static NodeList
+
 const btnAddTimer = document.querySelector(".add-timer");
-const btnEditTimer = document.querySelector(".btnEdit");
 const btnDeleteTimer = document.querySelector(".delete-timer");
-const btnPLaySong = document.querySelector(".play-song");
-const btnPauseSong = document.querySelector(".pause-song");
 
 export const songAudioKabaret = new Audio("piosenka-jest-dobra-na-wszystko.mp3");
 export const songAudioBeethoven = new Audio("beethoven-5th-symphony.mp3");
 
-export const timersSongs = [];
-const timers = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created
-///////////////////////////////////////////////// play songs buttons version - I will delete this section
-btnPLaySong.addEventListener("click", songAudioKabaret.play.bind(songAudioKabaret));
-btnPauseSong.addEventListener("click", songAudioKabaret.pause.bind(songAudioKabaret));
-////////////////////////////////////////////////////////////play songs buttons end  I will delete this section
+export const timersSongs = []; // you should add default songs
+const timersId = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created
+///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnAddTimer.addEventListener("click", function () {
-  if (!(nodeTimers.length < 3)) return;
+  if (!(nodeTimers.length < maxNumberTimers)) return;
 
   const emptyNodeTimer = nodeTimers[0].cloneNode(true);
-  emptyNodeTimer.querySelector("p").textContent = "mm:ss";
-  nodeTimersSection.append(emptyNodeTimer.cloneNode(true));
+  emptyNodeTimer.querySelector(".timer-time").textContent = baseTimerTime;
+  emptyNodeTimer.querySelector(".description").textContent = '';
+  nodeTimersSection.append(emptyNodeTimer);
 });
+
 btnDeleteTimer.addEventListener("click", function () {
-  if (!(nodeTimers.length > 1)) return;
+  if (!(nodeTimers.length > minNumberTimers)) return;
 
   deleteTimer(nodeTimers.length - 1);
   nodeTimers.item(nodeTimers.length - 1).remove();
+  pauseSong(timersSongs.length - 1);
 });
-export function getTimer(event) {
-  for (const [index, timer] of Object.entries(event.currentTarget.children)) {
-    if (timer === event.target.closest(".timer")) return index;
-  }
-}
-function showTime(timerTime, nodeTimerPTag) {
-  const minutes = `${Math.trunc(timerTime / (60 * 1000))}`.padStart(2, "0");
-  const seconds = `${Math.trunc((timerTime / 1000) % 60)}`.padStart(2, "0");
-  nodeTimerPTag.textContent = `${minutes}:${seconds}`;
-}
-function deleteTimer(timerNumber) {
-  clearInterval(timers[timerNumber]);
-  timers[timerNumber] = null;
-}
-function calculateTime(nodeTimerPTag){
-  const minutes = parseInt(nodeTimerPTag.textContent.substring(0,2));
-  const seconds = parseInt(nodeTimerPTag.textContent.substring(3));
-  console.log(minutes, seconds);
-  return (minutes * 60 * 1000 + seconds * 1000);
-}
+
 nodeTimersSection.addEventListener("click", function (event) {
   if (!event.target.classList.contains("btnStart")) return;
   //Here I use Event delegation
@@ -70,6 +50,7 @@ nodeTimersSection.addEventListener("click", function (event) {
       if (!(passedTime >= timerSetTime)) return;
 
       deleteTimer(timerNumber);
+      timersSongs[timerNumber].currentTime = 0;
       timersSongs[timerNumber].play();
     }, 1000);
   }
@@ -80,20 +61,51 @@ nodeTimersSection.addEventListener("click", function (event) {
     .closest(".timer")
     .querySelector(".timer-time");
   let timerSetTime = calculateTime(nodeTimerPTag); // time in miliseconds
-  showTime(timerSetTime, nodeTimerPTag);
-  if (timers[timerNumber]) {
+  if (timersId[timerNumber]) {
     deleteTimer(timerNumber);
   }
-  timers[timerNumber] = setTimer();
+  timersId[timerNumber] = setTimer();
 });
+
 nodeTimersSection.addEventListener("click", function (event) {
   if (!event.target.classList.contains("btnReset")) return;
 
   //Here I use Event delegation
   const timerNumber = getTimer(event);
   deleteTimer(timerNumber);
+  pauseSong(timerNumber);
   event.target.closest(".timer").querySelector(".timer-time").textContent =
-    "mm:ss";
+  baseTimerTime;
 });
+///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
+export function getTimer(event) {
+  for (const [index, timer] of Object.entries(event.currentTarget.children)) {
+    if (timer === event.target.closest(".timer")) return index;
+  }
+}
+
+function showTime(timerTime, nodeTimerPTag) {
+  const minutes = `${Math.trunc(timerTime / (60 * 1000))}`.padStart(2, "0");
+  const seconds = `${Math.trunc((timerTime / 1000) % 60)}`.padStart(2, "0");
+  nodeTimerPTag.textContent = `${minutes}:${seconds}`;
+}
+
+function deleteTimer(timerNumber) {
+  clearInterval(timersId[timerNumber]);
+  timersId[timerNumber] = null;
+}
+
+function calculateTime(nodeTimerPTag){
+  const minutes = parseInt(nodeTimerPTag.textContent.substring(0,2));
+  const seconds = parseInt(nodeTimerPTag.textContent.substring(3));
+  return (minutes * 60 * 1000 + seconds * 1000);
+}
+
+function pauseSong(songPosition){
+  timersSongs[songPosition]?.paused === false ? timersSongs[songPosition].pause() : '';
+  timersSongs[songPosition] = null;
+}
+
+
 
 

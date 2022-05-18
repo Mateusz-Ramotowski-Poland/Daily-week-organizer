@@ -4,7 +4,7 @@ import { nodeTimers } from "./countdown-timers.js";
 import { timersSongs } from "./countdown-timers.js";
 import { songAudioKabaret } from "./countdown-timers.js";
 import { songAudioBeethoven } from "./countdown-timers.js";
-
+///////////////////////////////////////////Below all global variables///////////////////////////////////////////
 const btnFormStart = document.querySelector(".form-start");
 const btnFormCancel = document.querySelector(".form-cancel");
 
@@ -17,25 +17,19 @@ const descriptionInput = formModal.querySelector('input[id="description"]');
 const selectSongInput = formModal.querySelector("select");
 
 let timerNumber;
-function hideForm() {
-  formModal.classList.add("hidden");
-  overlay.classList.add("hidden");
-}
-
+///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 nodeTimersSection.addEventListener("click", function (event) {
   if (!event.target.classList.contains("btnEdit")) return;
   formModal.classList.remove("hidden");
   overlay.classList.remove("hidden");
   timerNumber = getTimer(event);
-  console.log(timerNumber);
 });
-overlay.addEventListener("click", hideForm);
-btnFormCancel.addEventListener("click", hideForm);
-btnFormStart.addEventListener("click", function () {
-  console.log(typeof minutesInput.value, minutesInput.value);
-  console.log(typeof secondsInput.value, secondsInput.value);
-  console.log(typeof descriptionInput.value, descriptionInput.value);
 
+overlay.addEventListener("click", hideForm);
+
+btnFormCancel.addEventListener("click", hideForm);
+
+btnFormStart.addEventListener("click", function () {
   hideForm();
   const minutes = minutesInput.value.padStart(2, "0");
   const seconds = secondsInput.value.padStart(2, "0");
@@ -49,6 +43,10 @@ btnFormStart.addEventListener("click", function () {
   selectSongInput.value === "Piosenka jest dobra na wszystko"
     ? (timersSongs[timerNumber] = songAudioKabaret)
     : (timersSongs[timerNumber] = songAudioBeethoven);
-  console.log(selectSongInput.value);
-  console.log(timersSongs);
+
 });
+///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
+function hideForm() {
+  formModal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}

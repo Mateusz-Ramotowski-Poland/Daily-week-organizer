@@ -1,3 +1,4 @@
+///////////////////////////////////////////Below all global variables///////////////////////////////////////////
 const btnAddTask = document.querySelector(".btn-add-task");
 const btnDeleteTask = document.querySelector(".btn-delete-task");
 
@@ -7,9 +8,7 @@ const toDoElementsArea = document.querySelector(".to-do-elements");
 const toDoDescriptionInput = document.querySelector(
   'input[id="to-do-new-task-description"]'
 );
-//below only for testing, after development delete these lines
-const addTaskArea = document.querySelector(".add-task-area");
-////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnAddTask.addEventListener("click", function () {
   const newToDoElement = toDoElement.cloneNode(true);
   newToDoElement.innerHTML = `${toDoDescriptionInput.value} <button class="btn-delete-task">delete task</button>`;
