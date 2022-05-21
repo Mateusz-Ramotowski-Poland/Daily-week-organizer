@@ -62,7 +62,8 @@ export function getTimer(event) {
 
 function showTime(timerTime, nodeTimerPTag) {
   const minutes = `${Math.trunc(timerTime / (60 * 1000))}`.padStart(2, "0");
-  const seconds = `${Math.trunc((timerTime / 1000) % 60)}`.padStart(2, "0");
+  let seconds = `${Math.trunc((timerTime / 1000) % 60)}`.padStart(2, "0");
+  seconds[0] === '-' ? seconds = '00' : '';
   nodeTimerPTag.textContent = `${minutes}:${seconds}`;
 }
 
