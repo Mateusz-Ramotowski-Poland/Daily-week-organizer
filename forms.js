@@ -4,6 +4,8 @@ import { nodeTimers } from "./countdown-timers.js";
 import { timersSongs } from "./countdown-timers.js";
 import { songAudioKabaret } from "./countdown-timers.js";
 import { songAudioBeethoven } from "./countdown-timers.js";
+import { startNewTimer } from "./countdown-timers.js";
+
 ///////////////////////////////////////////Below all global variables///////////////////////////////////////////
 const btnFormStart = document.querySelector(".form-start");
 const btnFormCancel = document.querySelector(".form-cancel");
@@ -29,7 +31,7 @@ overlay.addEventListener("click", hideForm);
 
 btnFormCancel.addEventListener("click", hideForm);
 
-btnFormStart.addEventListener("click", function () {
+btnFormStart.addEventListener("click", function (event) {
   hideForm();
   const minutes = minutesInput.value.padStart(2, "0");
   const seconds = secondsInput.value.padStart(2, "0");
@@ -44,6 +46,7 @@ btnFormStart.addEventListener("click", function () {
     ? (timersSongs[timerNumber] = songAudioKabaret)
     : (timersSongs[timerNumber] = songAudioBeethoven);
 
+    startNewTimer(event, "form-start", timerNumber);
 });
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 function hideForm() {

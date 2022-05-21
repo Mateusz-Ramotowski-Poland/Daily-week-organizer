@@ -10,12 +10,15 @@ const toDoDescriptionInput = document.querySelector(
 );
 ///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnAddTask.addEventListener("click", function () {
-  const newToDoElement = toDoElement.cloneNode(true);
-  newToDoElement.innerHTML = `${toDoDescriptionInput.value} <button class="btn-delete-task">delete task</button>`;
-  toDoElementsArea.append(newToDoElement);
+  const newToDo = `
+  <div class="to-do-element">
+    ${toDoDescriptionInput.value}<button class="btn-delete-task">delete task</button>
+  </div>
+  `;
+  toDoElementsArea.insertAdjacentHTML("beforeend", newToDo);
 });
-toDoElementsArea.addEventListener('click', function(event){
-    if(!event.target.classList.contains('btn-delete-task')) return;
+toDoElementsArea.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("btn-delete-task")) return;
 
-    event.target.closest('.to-do-element').remove();
+  event.target.closest(".to-do-element").remove();
 });
