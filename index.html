@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily organizer by Mateusz Ramotowski</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="wholePage.css" />
     <link rel="stylesheet" href="forms.css" />
-    <link rel="stylesheet" href="to-do.css" />
+    <link rel="stylesheet" href="toDo.css" />
+    <link rel="stylesheet" href="timers.css">
     <script defer type="module" src="config.js"></script>
     <script defer type="module" src="countdown-timers.js"></script>
     <script defer type="module" src="forms.js"></script>
@@ -19,7 +20,7 @@
     </header>
 
     <main>
-      <section class="timers-section">
+      <section class="timers-section main-section">
         <section class="add-delete-timer">
           <button class="add-timer">Add timer</button>
           <button class="delete-timer">delete timer</button>
@@ -37,7 +38,7 @@
         </section>
       </section>
 
-      <section class="to-do-section">
+      <section class="to-do-section main-section">
         <form class="to-do-section-buttons">
           <div class="add-task-area">
             <label for="to-do-new-task-description">New Task description</label>
@@ -57,8 +58,9 @@
           <!-- <div class="to-do-element">Test <button class="btn-delete-task">delete task</button></div> -->
         </section>
       </section>
+    </main>
 
-      <form action="" class="modal hidden">
+     <form action="" class="modal hidden">
         <h2>Set timer</h2>
         <div class="form-set-time">
           <div>
@@ -87,8 +89,6 @@
       </form>
 
       <section class="overlay hidden"></section>
-    </main>
-
-    <footer>Mateusz Ramotowski</footer>
+    <footer>Author: Mateusz Ramotowski</footer>
   </body>
 </html>

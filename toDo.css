@@ -1,4 +1,10 @@
-.to-do-section{
+.to-do-element{
+    border: 1px solid purple;  /* think about delete it later */
+}
+
+
+
+/* .to-do-section{
     padding: 40px;
     border: 1px solid red;
     margin:10px;
@@ -7,4 +13,4 @@
     padding: 20px;
     border: 1px solid black;
     margin:10px;
-}
+} */
