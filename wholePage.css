@@ -1,5 +1,11 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+}
 h1{
     text-align: center;
+    font-size: 40px;
+    color: aquamarine;
+    letter-spacing: 4px;
 }
 main{
     border: 1px solid blue;  /* think about delete it later */

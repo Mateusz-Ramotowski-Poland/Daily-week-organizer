@@ -1,5 +1,20 @@
 .to-do-element{
-    border: 1px solid purple;  /* think about delete it later */
+    background-color: rgb(240, 247, 247);
+    color: blue;
+    text-align: left;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.to-do-element:nth-of-type(2n){
+    background-color: rgb(227, 235, 235);
+}
+.add-task-area{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 

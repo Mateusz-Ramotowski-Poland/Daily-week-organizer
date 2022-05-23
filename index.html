@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="wholePage.css" />
     <link rel="stylesheet" href="forms.css" />
     <link rel="stylesheet" href="toDo.css" />
-    <link rel="stylesheet" href="timers.css">
+    <link rel="stylesheet" href="timers.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <script defer type="module" src="config.js"></script>
     <script defer type="module" src="countdown-timers.js"></script>
     <script defer type="module" src="forms.js"></script>
@@ -16,7 +22,7 @@
   </head>
   <body>
     <header>
-      <h1>Daily organizer</h1>
+      <h1>DAILY ORGANIZER</h1>
     </header>
 
     <main>
@@ -41,7 +47,7 @@
       <section class="to-do-section main-section">
         <form class="to-do-section-buttons">
           <div class="add-task-area">
-            <label for="to-do-new-task-description">New Task description</label>
+            <label for="to-do-new-task-description">New Task description:</label>
             <input
               type="text"
               id="to-do-new-task-description"
@@ -60,35 +66,35 @@
       </section>
     </main>
 
-     <form action="" class="modal hidden">
-        <h2>Set timer</h2>
-        <div class="form-set-time">
-          <div>
-            <label for="minutes">Minutes</label>
-            <label for="seconds">Seconds</label>
-          </div>
-          <div>
-            <input type="number" id="minutes" max="60" min="0" name="minutes" />
-            <input type="number" id="seconds" max="60" min="0" name="seconds" />
-          </div>
+    <form action="" class="modal hidden">
+      <h2>Set timer</h2>
+      <div class="form-set-time">
+        <div>
+          <label for="minutes">Minutes</label>
+          <label for="seconds">Seconds</label>
         </div>
-        <div class="form-set-description">
-          <div><label for="description">Timer Description</label></div>
-          <div><input type="text" id="description" name="name" /></div>
+        <div>
+          <input type="number" id="minutes" max="60" min="0" name="minutes" />
+          <input type="number" id="seconds" max="60" min="0" name="seconds" />
         </div>
-        <select id="song-select" name="songs">
-          <option value="Piosenka jest dobra na wszystko">
-            Piosenka jest dobra na wszystko
-          </option>
-          <option value="beethoven-5th-symphony">beethoven-5th-symphony</option>
-        </select>
-        <div class="buttons">
-          <button class="form-start" type="button">Start</button>
-          <button class="form-cancel" type="button">Cancel</button>
-        </div>
-      </form>
+      </div>
+      <div class="form-set-description">
+        <div><label for="description">Timer Description</label></div>
+        <div><input type="text" id="description" name="name" /></div>
+      </div>
+      <select id="song-select" name="songs">
+        <option value="Piosenka jest dobra na wszystko">
+          Piosenka jest dobra na wszystko
+        </option>
+        <option value="beethoven-5th-symphony">beethoven-5th-symphony</option>
+      </select>
+      <div class="buttons">
+        <button class="form-start" type="button">Start</button>
+        <button class="form-cancel" type="button">Cancel</button>
+      </div>
+    </form>
 
-      <section class="overlay hidden"></section>
+    <section class="overlay hidden"></section>
     <footer>Author: Mateusz Ramotowski</footer>
   </body>
 </html>
