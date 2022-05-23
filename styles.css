@@ -1,7 +1,11 @@
-/* body{
-    background-color: red;
-} */      /*  it's connected with index.html */
-/* ///////////////////////////////////////////////////////////////// */
+button{
+    color: white;
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid blue;
+    background-color:blueviolet;
+    border-radius:15px;
+}
 .timer{
     padding: 20px;
     border: 1px solid black;
@@ -23,7 +27,7 @@
     width: 70%;
   
     background-color: white;
-    /* padding: 6rem; */
+    padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;

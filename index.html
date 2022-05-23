@@ -7,7 +7,7 @@
     <title>Daily organizer by Mateusz Ramotowski</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="forms.css" />
-    <link rel="stylesheet" href="to-do.css">
+    <link rel="stylesheet" href="to-do.css" />
     <script defer type="module" src="config.js"></script>
     <script defer type="module" src="countdown-timers.js"></script>
     <script defer type="module" src="forms.js"></script>
@@ -38,13 +38,21 @@
       </section>
 
       <section class="to-do-section">
-        <section class="to-do-section-buttons">
+        <form class="to-do-section-buttons">
           <div class="add-task-area">
             <label for="to-do-new-task-description">New Task description</label>
-            <input type="text" id="to-do-new-task-description" name="name" />
+            <input
+              type="text"
+              id="to-do-new-task-description"
+              name="name"
+              placeholder="Write task"
+              required
+              minlength="5"
+            />
+            <!-- <input type="text" id="to-do-new-task-description" name="name" required placeholder="Write task" patern='[A-Za-z]'/> -->
             <button class="btn-add-task">Add task</button>
           </div>
-        </section>
+        </form>
         <section class="to-do-elements">
           <!-- <div class="to-do-element">Test <button class="btn-delete-task">delete task</button></div> -->
         </section>
@@ -73,11 +81,11 @@
           <option value="beethoven-5th-symphony">beethoven-5th-symphony</option>
         </select>
         <div class="buttons">
-          <input class="form-start" type="button" value="start" />
-          <input class="form-cancel" type="button" value="cancel" />
+          <button class="form-start" type="button">Start</button>
+          <button class="form-cancel" type="button">Cancel</button>
         </div>
       </form>
-      
+
       <section class="overlay hidden"></section>
     </main>
 
