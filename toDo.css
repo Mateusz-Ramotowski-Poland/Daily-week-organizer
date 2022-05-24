@@ -1,3 +1,6 @@
+.to-do-section{
+    margin-left: 10px;
+}
 .to-do-element{
     background-color: rgb(240, 247, 247);
     color: blue;
@@ -18,16 +21,3 @@
     background-color: rgb(227, 235, 235);
     color: blue;
 }
-
-
-
-/* .to-do-section{
-    padding: 40px;
-    border: 1px solid red;
-    margin:10px;
-}
-.add-task-area{
-    padding: 20px;
-    border: 1px solid black;
-    margin:10px;
-} */

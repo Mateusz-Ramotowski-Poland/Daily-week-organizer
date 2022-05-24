@@ -1,5 +1,6 @@
 body{
     font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
 }
 h1{
     text-align: center;
@@ -8,14 +9,13 @@ h1{
     letter-spacing: 4px;
 }
 main{
-    border: 1px solid blue;  /* think about delete it later */
     display:flex;
     margin-bottom:30px;
+    border:2px solid rgb(206, 206, 222);
 }
 .main-section{
     width: 50%;
     text-align: center;
-    border: 1px solid red;  /* think about delete it later */
 }
 
 .hidden{
@@ -29,6 +29,7 @@ main{
     padding: 10px;
     border: 2px solid black;
     border-radius:15px;
+    font-size: 18px;
 }
 .add-timer, .btn-add-task, .btnStart, .form-start{
     background-color:rgb(109, 205, 14);
@@ -42,22 +43,36 @@ main{
 .btnReset{
     background-color:rgb(142, 121, 14);
 }
+footer{
+    font-size: 16px;
+}
 
-/*
-.timer{
-    padding: 20px;
-    border: 1px solid black;
-    margin:10px;
-}
-.timers{
-    padding: 20px;
-    border: 1px solid red;
-    margin:10px;
-}
-.hidden{
-    display:none;
-}
 .modal {
+/*     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    /* width: 70%; */
+    position: sticky;
+    top: 20px;
+  
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+    /* box-shadow: 0 3rem 5rem rgba(236, 6, 6, 0.3); */
+    z-index: 10;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+  } 
+/* .modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -79,4 +94,4 @@ main{
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     z-index: 5;
-  } */
+  }  */
