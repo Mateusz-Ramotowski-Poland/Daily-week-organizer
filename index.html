@@ -70,7 +70,7 @@
       <h2>Set timer</h2>
       <div class="form-set-time">
         <div>
-          <label for="minutes">Minutes</label>
+          <label class='minutes-label' for="minutes">Minutes</label>
           <label for="seconds">Seconds</label>
         </div>
         <div>
@@ -82,13 +82,14 @@
         <div><label for="description">Timer Description</label></div>
         <div><input type="text" id="description" name="name" /></div>
       </div>
+      <div><label class='song-select-label' for="song-select">Choose alarm song</label></div>
       <select id="song-select" name="songs">
         <option value="Piosenka jest dobra na wszystko">
           Piosenka jest dobra na wszystko
         </option>
         <option value="beethoven-5th-symphony">Beethoven-5th-symphony</option>
       </select>
-      <div class="buttons">
+      <div class="form-buttons">
         <button class="form-start" type="button">Start</button>
         <button class="form-cancel" type="button">Cancel</button>
       </div>
