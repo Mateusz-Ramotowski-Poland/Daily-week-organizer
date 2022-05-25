@@ -7,11 +7,11 @@ import { songAudioBeethoven } from "./countdown-timers.js";
 import { startNewTimer } from "./countdown-timers.js";
 
 ///////////////////////////////////////////Below all global variables///////////////////////////////////////////
-const btnFormStart = document.querySelector(".form-start");
-const btnFormCancel = document.querySelector(".form-cancel");
+const btnFormStart = document.querySelector(".main__form__btn-start");
+const btnFormCancel = document.querySelector(".main__form__btn-cancel");
 
-const formModal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
+const formModal = document.querySelector(".main__form--modal");
+const overlay = document.querySelector(".main__form__overlay");
 
 const minutesInput = formModal.querySelector('input[id="minutes"]');
 const secondsInput = formModal.querySelector('input[id="seconds"]');
@@ -21,7 +21,7 @@ const selectSongInput = formModal.querySelector("select");
 let timerNumber;
 ///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 nodeTimersSection.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("btnEdit")) return;
+  if (!event.target.classList.contains("main__section__btn-edit")) return;
   formModal.classList.remove("hidden");
   overlay.classList.remove("hidden");
   timerNumber = getTimer(event);
@@ -36,17 +36,17 @@ btnFormStart.addEventListener("click", function (event) {
   const minutes = minutesInput.value.padStart(2, "0");
   const seconds = secondsInput.value.padStart(2, "0");
   nodeTimers[timerNumber].querySelector(
-    ".timer-time"
+    ".main__section__timer-time"
   ).textContent = `${minutes}:${seconds}`;
   nodeTimers[timerNumber].querySelector(
-    ".description"
+    ".main__section__timer-description"
   ).textContent = `${descriptionInput.value}`;
 
   selectSongInput.value === "Piosenka jest dobra na wszystko"
     ? (timersSongs[timerNumber] = songAudioKabaret)
     : (timersSongs[timerNumber] = songAudioBeethoven);
 
-    startNewTimer(event, "form-start", timerNumber);
+    startNewTimer(event, "main__form__btn-start", timerNumber);
 });
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 function hideForm() {

@@ -1,0 +1,27 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+}
+footer{
+    font-size: 16px;
+}
+h1{
+    color: aquamarine;
+    font-size: 40px;
+    letter-spacing: 4px;
+    text-align: center;   
+}
+main{
+    border:2px solid rgb(206, 206, 222);
+    display:flex;
+    margin-bottom:30px;   
+}
+.main__section--timers-section, .main__section--to-do-section{  
+    text-align: center;
+    width: 50%;
+}
+menu{
+    margin:10px;
+}
+
+

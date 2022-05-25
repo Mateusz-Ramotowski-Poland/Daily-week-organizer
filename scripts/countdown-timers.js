@@ -10,11 +10,17 @@ import { baseTimerTime } from "./config.js";
 // use inputs instead of prompt
 // in function name - write what it do not how it do
 ///////////////////////////////////////////Below all global variables///////////////////////////////////////////
-export const nodeTimers = document.getElementsByClassName("timer"); // return HTML live collection
-export const nodeTimersSection = document.querySelector(".timers"); // return static NodeList
+export const nodeTimers = document.getElementsByClassName(
+  "main__section__timer"
+); // return HTML live collection
+export const nodeTimersSection = document.querySelector(
+  ".main__section__timers"
+); // return static NodeList
 
-const btnAddTimer = document.querySelector(".add-timer");
-const btnDeleteTimer = document.querySelector(".delete-timer");
+const btnAddTimer = document.querySelector(".main__section__btn-add-timer");
+const btnDeleteTimer = document.querySelector(
+  ".main__section__btn-delete-timer"
+);
 
 export const songAudioKabaret = new Audio(
   "/mp3/piosenka-jest-dobra-na-wszystko.mp3"
@@ -28,8 +34,11 @@ btnAddTimer.addEventListener("click", function () {
   if (!(nodeTimers.length < maxNumberTimers)) return;
 
   const emptyNodeTimer = nodeTimers[0].cloneNode(true);
-  emptyNodeTimer.querySelector(".timer-time").textContent = baseTimerTime;
-  emptyNodeTimer.querySelector(".description").textContent = "";
+  emptyNodeTimer.querySelector(".main__section__timer-time").textContent =
+    baseTimerTime;
+  emptyNodeTimer.querySelector(
+    ".main__section__timer-description"
+  ).textContent = "";
   nodeTimersSection.append(emptyNodeTimer);
 });
 
@@ -41,29 +50,32 @@ btnDeleteTimer.addEventListener("click", function () {
   pauseSong(timersSongs.length - 1);
 });
 
-nodeTimersSection.addEventListener("click", startNewTimer); // I used here event delegation, it is for btn start
+nodeTimersSection.addEventListener("click", startNewTimer); // I used here event delegation, it is for main__section__btn-start
 
 nodeTimersSection.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("btnReset")) return;
+  if (!event.target.classList.contains("main__section__btn-reset")) return;
 
   //Here I use Event delegation
   const timerNumber = getTimer(event);
   deleteTimer(timerNumber);
   pauseSong(timerNumber);
-  event.target.closest(".timer").querySelector(".timer-time").textContent =
-    baseTimerTime;
+  event.target
+    .closest(".main__section__timer")
+    .querySelector(".main__section__timer-time").textContent = baseTimerTime;
 });
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 export function getTimer(event) {
   for (const [index, timer] of Object.entries(event.currentTarget.children)) {
-    if (timer === event.target.closest(".timer")) return index;
+    if (timer === event.target.closest(".main__section__timer")) {
+      return index;
+    }  
   }
 }
 
 function showTime(timerTime, nodeTimerPTag) {
   const minutes = `${Math.trunc(timerTime / (60 * 1000))}`.padStart(2, "0");
   let seconds = `${Math.trunc((timerTime / 1000) % 60)}`.padStart(2, "0");
-  seconds[0] === '-' ? seconds = '00' : '';
+  seconds[0] === "-" ? (seconds = "00") : "";
   nodeTimerPTag.textContent = `${minutes}:${seconds}`;
 }
 
@@ -85,7 +97,12 @@ function pauseSong(songPosition) {
   timersSongs[songPosition] = null;
 }
 
-export function startNewTimer(event, btnClass = "btnStart", timerNumber = getTimer(event)) {
+export function startNewTimer(
+  event,
+  btnClass = "main__section__btn-start",
+  timerNumber = getTimer(event)
+) {
+  console.log(timerNumber);
   if (!event.target.classList.contains(btnClass)) return;
   //Here I use Event delegation
   function setTimer() {
@@ -102,8 +119,9 @@ export function startNewTimer(event, btnClass = "btnStart", timerNumber = getTim
   }
 
   const startTime = Date.now();
-  const nodeTimerPTag = nodeTimersSection.children
-    [timerNumber].querySelector(".timer-time");
+  const nodeTimerPTag = nodeTimersSection.children[timerNumber].querySelector(
+    ".main__section__timer-time"
+  );
 
   let timerSetTime = calculateTime(nodeTimerPTag); // time in miliseconds
   if (timersId[timerNumber]) {

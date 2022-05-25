@@ -1,3 +1,16 @@
+<!-- CSS class names standard
+  I will use this BEM (for Block-Element-Modifier) implementation - http://bdavidxyz.com/blog/how-to-name-css-classes/
+__ means children of the element
+-- means variation of the element
+
+  CSS class pattern:
+  ChildOfBodyTag__ChilfOfChildOfBodyTag__or--TagfunctionalityOFClass(use - between words not camel case) ;examples below:
+  main__section--timers-section
+  main__section__btn-add-timer
+
+  CSS class pattern: only for one property inside class ;example
+  hidden class - property display:none
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,10 +19,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily organizer by Mateusz Ramotowski</title>
 
+    <link rel="stylesheet" href="styles/buttons.css" />
     <link rel="stylesheet" href="styles/forms.css" />
     <link rel="stylesheet" href="styles/timers.css" />
-    <link rel="stylesheet" href="styles/toDo.css" />
-    <link rel="stylesheet" href="styles/wholePage.css" />
+    <link rel="stylesheet" href="styles/to-do.css" />
+    <link rel="stylesheet" href="styles/whole-page.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,27 +44,27 @@
     </header>
 
     <main>
-      <section class="timers-section main-section">
-        <menu class="add-delete-timer">
-          <button class="add-timer">Add timer</button>
-          <button class="delete-timer">delete timer</button>
+      <section class="main__section--timers-section">
+        <menu class="main__section__add-delete-timer">
+          <button class="main__section__btn-add-timer">Add timer</button>
+          <button class="main__section__btn-delete-timer">delete timer</button>
         </menu>
 
-        <section class="timers">
-          <div class="timer">
-            <p class="description"></p>
-            <p class="timer-time">20:00</p>
+        <section class="main__section__timers">
+          <div class="main__section__timer">
+            <p class="main__section__timer-description"></p>
+            <p class="main__section__timer-time">20:00</p>
             <menu>
-              <button class="btnEdit">Edit</button>
-              <button class="btnReset">Reset</button>
-              <button class="btnStart">Start</button>
+              <button class="main__section__btn-edit">Edit</button>
+              <button class="main__section__btn-reset">Reset</button>
+              <button class="main__section__btn-start">Start</button>
             </menu>
           </div>
         </section>
       </section>
 
-      <section class="to-do-section main-section">
-        <form class="to-do-section-buttons add-task-area">
+      <section class="main__section--to-do-section">
+        <form class="main__section__add-task-form">
           <label for="to-do-new-task-description">New Task description:</label>
           <input
             type="text"
@@ -60,67 +74,67 @@
             required
             minlength="5"
           />
-          <button class="btn-add-task">Add task</button>
+          <button class="main__section__btn-add-task">Add task</button>
         </form>
 
-        <section class="to-do-elements"></section>
+        <section class="main__section__to-do-elements"></section>
       </section>
+
+      <form action="" class="main__form--modal hidden">
+        <h2>Set timer</h2>
+  
+        <div>
+          <div>
+            <label class="main__form__minutes-label" for="minutes">Minutes</label>
+            <label for="seconds">Seconds</label>
+          </div>
+          <div>
+            <input type="number" id="minutes" max="60" min="0" name="minutes" />
+            <input type="number" id="seconds" max="60" min="0" name="seconds" />
+          </div>
+        </div>
+  
+        <div class="main__form__description">
+          <div><label for="description">Timer Description</label></div>
+          <div><input type="text" id="description" name="name" /></div>
+        </div>
+  
+        <div>
+          <div>
+            <label for="song-select"
+              >Choose alarm song</label
+            >
+          </div>
+          <select id="song-select" name="songs">
+            <option value="Piosenka jest dobra na wszystko">
+              Piosenka jest dobra na wszystko
+            </option>
+            <option value="beethoven-5th-symphony">Beethoven-5th-symphony</option>
+          </select>
+        </div>
+  
+        <menu class="main__form__menu-buttons">
+          <button class="main__form__btn-start" type="button">Start</button>
+          <button class="main__form__btn-cancel" type="button">Cancel</button>
+        </menu>
+      </form>
+  
+      <form class="main__form--modal2 hidden">
+        <h2>Timer</h2>
+  
+        <div>Tu będzie ikona lub zdjęcie Timera</div> <!-- Maybe here give img tag or different tag -->
+  
+        <p>Pobierz description Timer</p>
+        <p>Pobierz czas Timera</p>
+  
+        <menu>
+          <button class="main__form__btn-restart-timer">Restart timer</button>
+          <button class="main__form__btn-ok">Ok</button>
+        </menu>
+      </form>
+  
+      <aside class="main__form__overlay hidden"></aside>
     </main>
-
-    <form action="" class="modal hidden">
-      <h2>Set timer</h2>
-
-      <div class="form-set-time">
-        <div>
-          <label class="minutes-label" for="minutes">Minutes</label>
-          <label for="seconds">Seconds</label>
-        </div>
-        <div>
-          <input type="number" id="minutes" max="60" min="0" name="minutes" />
-          <input type="number" id="seconds" max="60" min="0" name="seconds" />
-        </div>
-      </div>
-
-      <div class="form-set-description">
-        <div><label for="description">Timer Description</label></div>
-        <div><input type="text" id="description" name="name" /></div>
-      </div>
-
-      <div>
-        <div>
-          <label class="song-select-label" for="song-select"
-            >Choose alarm song</label
-          >
-        </div>
-        <select id="song-select" name="songs">
-          <option value="Piosenka jest dobra na wszystko">
-            Piosenka jest dobra na wszystko
-          </option>
-          <option value="beethoven-5th-symphony">Beethoven-5th-symphony</option>
-        </select>
-      </div>
-
-      <menu class="form-buttons">
-        <button class="form-start" type="button">Start</button>
-        <button class="form-cancel" type="button">Cancel</button>
-      </menu>
-    </form>
-
-    <form class="modal modal-after-timer-finished hidden">
-      <h2>Timer</h2>
-
-      <div>Tu będzie ikona lub zdjęcie Timera</div> <!-- Maybe here give img tag or different tag -->
-
-      <p>Pobierz description Timer</p>
-      <p>Pobierz czas Timera</p>
-
-      <menu>
-        <button class="btn-restart-timer">Restart timer</button>
-        <button class="btn-ok">Ok</button>
-      </menu>
-    </form>
-
-    <aside class="overlay hidden"></aside>
     
     <footer>Author: Mateusz Ramotowski</footer>
   </body>

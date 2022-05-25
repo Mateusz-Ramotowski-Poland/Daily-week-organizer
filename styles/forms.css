@@ -1,34 +1,38 @@
+.hidden{
+    display:none;
+}
 input, select{
     font-size: 18px;
 }
-.modal {
+.main__form__description{
+    margin-bottom: 30px;
+}
+.main__form__description, .main__form__menu-buttons{
+    margin-top: 30px;
+}
+.main__form__minutes-label, #minutes{
+    margin-right: 10px;
+}
+.main__form--modal, .main__form--modal2 {
+    background-color: rgb(232, 240, 212);   
+    border-radius: 10px;   
+    left: 35%;    
+    padding: 0rem 3rem 3rem 3rem ;   
+    position: fixed;     
     text-align: center;
-    position: fixed;
     top: 25%;
-    left: 35%;
-    background-color: rgb(232, 240, 212); 
-    padding: 0rem 3rem 3rem 3rem ;
-    border-radius: 10px;
     z-index: 2;
   }
-  .overlay {
+  .main__form__overlay {
+    backdrop-filter: blur(7px);   
+    background-color: rgba(0, 0, 0, 0.8);   
+    height: 100%;    
+    left: 0;     
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(7px);
     z-index: 1;
   } 
-  .form-set-description, .form-buttons{
-      margin-top: 30px;
-  }
-  .form-set-description{
-      margin-bottom: 30px;
-  }
-  #minutes, .minutes-label{
-      margin-right: 10px;
-  }
+
   
 

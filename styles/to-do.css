@@ -1,0 +1,25 @@
+.main__section__add-task-form{
+    align-items: center;
+    background-color: rgb(227, 235, 235);
+    color: blue;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;  
+}
+.main__section__to-do-element{
+    align-items: center;
+    background-color: rgb(240, 247, 247);
+    color: blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    text-align: left;   
+}
+.main__section__to-do-element:nth-of-type(2n), .main__section--to-do-section{
+    background-color: rgb(227, 235, 235);
+}
+.main__section--to-do-section{
+    margin-left: 10px;
+}
+
+

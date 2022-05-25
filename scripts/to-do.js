@@ -1,8 +1,8 @@
 import { ToDoKeyLocalStorage } from "./config.js";
 ///////////////////////////////////////////Below all global variables///////////////////////////////////////////
-const btnAddTask = document.querySelector(".btn-add-task");
+const btnAddTask = document.querySelector(".main__section__btn-add-task");
 
-const toDoElementsArea = document.querySelector(".to-do-elements");
+const toDoElementsArea = document.querySelector(".main__section__to-do-elements");
 
 const toDoDescriptionInput = document.querySelector(
   'input[id="to-do-new-task-description"]'
@@ -30,7 +30,7 @@ btnAddTask.addEventListener("click", function (event) {
   localStorage.setItem(ToDoKeyLocalStorage, JSON.stringify(tasks));
 });
 toDoElementsArea.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("btn-delete-task")) return;
+  if (!event.target.classList.contains("main__section__btn-delete-task")) return;
 
   let deleteNumber;
   //identife children number
@@ -54,14 +54,14 @@ toDoElementsArea.addEventListener("click", function (event) {
   console.log(typeof event.currentTarget.children, event.currentTarget.children);
   console.log(event.target);
   console.log(tasks); */
-  event.target.closest(".to-do-element").remove();
+  event.target.closest(".main__section__to-do-element").remove();
 
 });
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 function displayToDo(TodoDescription) {
   const newToDo = `
-  <div class="to-do-element">
-    ${TodoDescription}<button class="btn-delete-task">delete task</button>
+  <div class="main__section__to-do-element">
+    ${TodoDescription}<button class="main__section__btn-delete-task">delete task</button>
   </div>
   `;
   tasks.push(TodoDescription);
