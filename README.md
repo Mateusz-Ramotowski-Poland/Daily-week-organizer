@@ -83,7 +83,7 @@ Version 1.4
 
 In the next project start work with (At the beginning it will take more time but it is easier after the app gets bigger and bigger)
 1.V Good semantic HTML structure with proper tags.
-2. Create standards for CSS classes, and divide CSS selectors for a few CSS files - it is easier to change something.
+2.V Create standards for CSS classes, and divide CSS selectors for a few CSS files - it is easier to change something.
 3. Create standards for function names and variable names.
 4. Divide your CSS code into a few js modules.
 5. Refactor Your code from time to time and add comments in harder-to-understand parts of the code
