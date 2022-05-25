@@ -17,9 +17,9 @@ const btnAddTimer = document.querySelector(".add-timer");
 const btnDeleteTimer = document.querySelector(".delete-timer");
 
 export const songAudioKabaret = new Audio(
-  "piosenka-jest-dobra-na-wszystko.mp3"
+  "/mp3/piosenka-jest-dobra-na-wszystko.mp3"
 );
-export const songAudioBeethoven = new Audio("beethoven-5th-symphony.mp3");
+export const songAudioBeethoven = new Audio("/mp3/beethoven-5th-symphony.mp3");
 
 export const timersSongs = []; // you should add default songs
 const timersId = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created

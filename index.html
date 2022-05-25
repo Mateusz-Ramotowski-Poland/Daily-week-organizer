@@ -5,21 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily organizer by Mateusz Ramotowski</title>
-    <link rel="stylesheet" href="wholePage.css" />
-    <link rel="stylesheet" href="forms.css" />
-    <link rel="stylesheet" href="toDo.css" />
-    <link rel="stylesheet" href="timers.css" />
+
+    <link rel="stylesheet" href="styles/forms.css" />
+    <link rel="stylesheet" href="styles/timers.css" />
+    <link rel="stylesheet" href="styles/toDo.css" />
+    <link rel="stylesheet" href="styles/wholePage.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <script defer type="module" src="config.js"></script>
-    <script defer type="module" src="countdown-timers.js"></script>
-    <script defer type="module" src="forms.js"></script>
-    <script defer type="module" src="to-do.js"></script>
+
+    <script defer type="module" src="scripts/config.js"></script>
+    <script defer type="module" src="scripts/countdown-timers.js"></script>
+    <script defer type="module" src="scripts/forms.js"></script>
+    <script defer type="module" src="scripts/to-do.js"></script>
   </head>
+
   <body>
     <header>
       <h1>DAILY ORGANIZER</h1>
@@ -27,50 +31,48 @@
 
     <main>
       <section class="timers-section main-section">
-        <section class="add-delete-timer">
+        <menu class="add-delete-timer">
           <button class="add-timer">Add timer</button>
           <button class="delete-timer">delete timer</button>
-        </section>
+        </menu>
+
         <section class="timers">
           <div class="timer">
             <p class="description"></p>
             <p class="timer-time">20:00</p>
-            <section>
+            <menu>
               <button class="btnEdit">Edit</button>
               <button class="btnReset">Reset</button>
               <button class="btnStart">Start</button>
-            </section>
+            </menu>
           </div>
         </section>
       </section>
 
       <section class="to-do-section main-section">
-        <form class="to-do-section-buttons">
-          <div class="add-task-area">
-            <label for="to-do-new-task-description">New Task description:</label>
-            <input
-              type="text"
-              id="to-do-new-task-description"
-              name="name"
-              placeholder="Write task"
-              required
-              minlength="5"
-            />
-            <!-- <input type="text" id="to-do-new-task-description" name="name" required placeholder="Write task" patern='[A-Za-z]'/> -->
-            <button class="btn-add-task">Add task</button>
-          </div>
+        <form class="to-do-section-buttons add-task-area">
+          <label for="to-do-new-task-description">New Task description:</label>
+          <input
+            type="text"
+            id="to-do-new-task-description"
+            name="name"
+            placeholder="Write task"
+            required
+            minlength="5"
+          />
+          <button class="btn-add-task">Add task</button>
         </form>
-        <section class="to-do-elements">
-          <!-- <div class="to-do-element">Test <button class="btn-delete-task">delete task</button></div> -->
-        </section>
+
+        <section class="to-do-elements"></section>
       </section>
     </main>
 
     <form action="" class="modal hidden">
       <h2>Set timer</h2>
+
       <div class="form-set-time">
         <div>
-          <label class='minutes-label' for="minutes">Minutes</label>
+          <label class="minutes-label" for="minutes">Minutes</label>
           <label for="seconds">Seconds</label>
         </div>
         <div>
@@ -78,24 +80,48 @@
           <input type="number" id="seconds" max="60" min="0" name="seconds" />
         </div>
       </div>
+
       <div class="form-set-description">
         <div><label for="description">Timer Description</label></div>
         <div><input type="text" id="description" name="name" /></div>
       </div>
-      <div><label class='song-select-label' for="song-select">Choose alarm song</label></div>
-      <select id="song-select" name="songs">
-        <option value="Piosenka jest dobra na wszystko">
-          Piosenka jest dobra na wszystko
-        </option>
-        <option value="beethoven-5th-symphony">Beethoven-5th-symphony</option>
-      </select>
-      <div class="form-buttons">
+
+      <div>
+        <div>
+          <label class="song-select-label" for="song-select"
+            >Choose alarm song</label
+          >
+        </div>
+        <select id="song-select" name="songs">
+          <option value="Piosenka jest dobra na wszystko">
+            Piosenka jest dobra na wszystko
+          </option>
+          <option value="beethoven-5th-symphony">Beethoven-5th-symphony</option>
+        </select>
+      </div>
+
+      <menu class="form-buttons">
         <button class="form-start" type="button">Start</button>
         <button class="form-cancel" type="button">Cancel</button>
-      </div>
+      </menu>
     </form>
 
-    <section class="overlay hidden"></section>
+    <form class="modal modal-after-timer-finished hidden">
+      <h2>Timer</h2>
+
+      <div>Tu będzie ikona lub zdjęcie Timera</div> <!-- Maybe here give img tag or different tag -->
+
+      <p>Pobierz description Timer</p>
+      <p>Pobierz czas Timera</p>
+
+      <menu>
+        <button class="btn-restart-timer">Restart timer</button>
+        <button class="btn-ok">Ok</button>
+      </menu>
+    </form>
+
+    <aside class="overlay hidden"></aside>
+    
     <footer>Author: Mateusz Ramotowski</footer>
   </body>
 </html>
