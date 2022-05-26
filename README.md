@@ -17,25 +17,27 @@ Project is created with:
 * HTML5
 * CSS3
 * JS(ES6+)
+* Local Storage as 'database'
 
 I was using Chrome developer tools for testing my application.
 ## Features
 Timer section:
-- Add/delete new timer buttons (min: 1 timer, max: 3 timers).
+- You can add/delete timer. You can have from 1 to 5 timers. 
 - Click the start button to launch the timer.
 - Click the reset button to cancel the timer. 
 - When the timer will reach zero You will hear the song.
-- You can edit the timer: time, description, and song/ringtone.
+- You can edit the timer settings: time, description, and song/ringtone.
 
 To-do-tasks section: 
-- Add new tasks
-- You can delete every task after completion
+- Add new tasks.
+- You can delete every task.
+- Tasks are saved after closing the browser (the app is using local storage for that).
 
 ## Project Status
-Project in progress. What I will do next:
-- add new options to To-do-tasks section.
-- make nice looking responsive layout for the whole app.
-- ....I will think about what I need
+The project is in progress. What I will do next:
+- make nice looking layout responsive to all resolutions.
+- I am thinking about it...
+
 
 ## Acknowledgements
 Thanks [_Jonas Schmedtmann_](https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22648683?start=420#overview)
@@ -90,6 +92,7 @@ In the next project start work with (At the beginning it will take more time but
 6. Write good README.md file.
 7. CONCENTRATE ON ONE TASK - DO THAT TASK AND MAKE COMMIT WITH GOOD DESCRIPTION OF WHAT YOU DONE. START NEXT TASK......
 8. DIVIDE CODE INTO SMALL PIECE. wWRITE PIECE OF CODE. TEST IT WELL AND THEN GO TO WRITE NEXT PIECE OF CODE - MORE THINK FROM BEGINNING YOU WILL HAVE LESS BUGS AND FRUSTRATION LATER
+9. Selectors in CSS files in alphabetically order - it looks nicer and it is easier to search
 
 
 What should I fix, consider?
@@ -99,4 +102,7 @@ What should I fix, consider?
 3. Nie działa dobrze przycisk delete timer - zatrzymuję piosenkę dla ostatniego timera zawsze dla następnych już nie.
 Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm na ostatnim naciśnij delete, potem ustaw alarm na ostatnim naciśnij delete.... znajdź ten bug. 
 4. Zrób main__form--modal2 w index.html . Dodaj wydarzenia do tego modala - po tym jak timer doliczy do 0 to wtedy ma sie on pojawić.
+5. Use program to make songs shorter - less to download
+6. Inne zachowanie po wcisnieciu restart timer btn  - włącz timer z danymi, które były poprxednio: Utwórx dwie nowe tabele dla cxasów i description(?). Może użyj do tego przycisku  z main__form--modal2 - lub obu wymienionych przycisków.
+7. Czy warto mieć main__form--modal2 i main__form--modal1 -  dwie klasy z identycznym stylowaniem. POmysl o powiazaniem tego z dodawaniem wydarzenia JS.
 -->
