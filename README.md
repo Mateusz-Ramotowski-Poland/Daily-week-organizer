@@ -88,8 +88,15 @@ In the next project start work with (At the beginning it will take more time but
 4. Divide your CSS code into a few js modules.
 5. Refactor Your code from time to time and add comments in harder-to-understand parts of the code
 6. Write good README.md file.
+7. CONCENTRATE ON ONE TASK - DO THAT TASK AND MAKE COMMIT WITH GOOD DESCRIPTION OF WHAT YOU DONE. START NEXT TASK......
+8. DIVIDE CODE INTO SMALL PIECE. wWRITE PIECE OF CODE. TEST IT WELL AND THEN GO TO WRITE NEXT PIECE OF CODE - MORE THINK FROM BEGINNING YOU WILL HAVE LESS BUGS AND FRUSTRATION LATER
 
 
-
-
+What should I fix, consider?
+0. dO RESPONSOVE LAYOUT ON ALL SCREEN SIZES
+1. Czy przycisk start w edycji timera powinienem restartować timer(w trakcie edycji może grać muzyka), albo przynajmnniej wyłączyć ,uzykę jeśli gra alarm - czy rozwiąże to formularz, który pojawi się gdy Timer dojdzie do zera?
+2. Przekroczenie wartości min i max minut i sekund przy edycji timera - da się to zrobić. Jak to rozwiązać?
+3. Nie działa dobrze przycisk delete timer - zatrzymuję piosenkę dla ostatniego timera zawsze dla następnych już nie.
+Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm na ostatnim naciśnij delete, potem ustaw alarm na ostatnim naciśnij delete.... znajdź ten bug. 
+4. Zrób main__form--modal2 w index.html . Dodaj wydarzenia do tego modala - po tym jak timer doliczy do 0 to wtedy ma sie on pojawić.
 -->
