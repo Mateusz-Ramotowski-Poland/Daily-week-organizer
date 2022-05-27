@@ -15,9 +15,9 @@ export const nodeTimersSection = document.querySelector(
 ); // return static NodeList
 
 export const songAudioKabaret = new Audio(
-  "/mp3/piosenka-jest-dobra-na-wszystko.mp3"
+  "songs/piosenka-jest-dobra-na-wszystko.mp3"
 );
-export const songAudioBeethoven = new Audio("/mp3/beethoven-5th-symphony.mp3");
+export const songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
 
 const timersId = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created
 export const timersSongs = []; // you should add default songs
