@@ -105,4 +105,7 @@ Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm
 5. Use program to make songs shorter - less to download
 6. Inne zachowanie po wcisnieciu restart timer btn  - włącz timer z danymi, które były poprxednio: Utwórx dwie nowe tabele dla cxasów i description(?). Może użyj do tego przycisku  z main__form--modal2 - lub obu wymienionych przycisków.
 7. Czy warto mieć main__form--modal2 i main__form--modal1 -  dwie klasy z identycznym stylowaniem. POmysl o powiazaniem tego z dodawaniem wydarzenia JS.
+8. Uncaught TypeError: Cannot set properties of null (setting 'currentTime')
+    at countdown-timers.js:92:42 Dodaj warunek. Czyu można przewinąć piosenkę, która nie grała ? 
+9. Dodaj kolejny commit po dodaniu dalszych uwag przed zaczęciem pracy
 -->
