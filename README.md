@@ -108,4 +108,6 @@ Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm
 8. Uncaught TypeError: Cannot set properties of null (setting 'currentTime')
     at countdown-timers.js:92:42 Dodaj warunek. Czyu można przewinąć piosenkę, która nie grała ? 
 9. Dodaj kolejny commit po dodaniu dalszych uwag przed zaczęciem pracy
+10. Failed to load resource: the server responded with a status of 404 (). Webpage can't download songs! 
+Uncaught (in promise) DOMException: The element has no supported sources - ten błąd wynika z niemożności załadowania piosenek. Dodaj obsługę błędów. Znajdź powód dlaczego to nie działa.
 -->
