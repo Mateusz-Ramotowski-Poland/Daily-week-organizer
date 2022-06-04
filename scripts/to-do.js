@@ -2,14 +2,12 @@ import { ToDoLocalStorageKey } from "./config.js";
 ///////////////////////////////////////////Below all global variables///////////////////////////////////////////
 const btnAddTask = document.querySelector(".main__section__btn-add-task");
 const btnsDeleteTask = document.getElementsByClassName('main__section__btn-delete-task'); // return HTML live collection
-
 const toDoDescriptionInput = document.querySelector(
   'input[id="to-do-new-task-description"]'
 );
 const toDoElementsArea = document.querySelector(".main__section__to-do-elements");
 
 const tasks = [];
-
 const savedLocalStorage = JSON.parse(localStorage.getItem(ToDoLocalStorageKey)); //Here I got an aray of strings
 ///////////////////////////////////////////Below All init operations///////////////////////////////////////////
 if (savedLocalStorage) {

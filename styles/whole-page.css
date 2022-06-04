@@ -16,12 +16,34 @@ main{
     display:flex;
     margin-bottom:30px;   
 }
-.main__section--timers-section, .main__section--to-do-section{  
+.main__section--timers-section{  
+    background-color: rgb(217, 234, 180);
+    margin-right: 10px;
     text-align: center;
-    width: 50%;
+    width: 40%;
+}
+.main__section--to-do-section{
+    margin-left: 10px;
+    width: 60%;
 }
 menu{
-    margin:10px;
+    margin:0;
+    padding: 0;
+}
+
+@media (max-width: 1000px){
+    main{
+        flex-direction: column;
+    }
+    .main__section--timers-section{
+        margin:0px;
+    }
+    .main__section--timers-section, .main__section--to-do-section{
+        width: 100%;    
+    }
+    .main__section--to-do-section{
+        margin: 20px 0 0 0;
+    }
 }
 
 

@@ -65,8 +65,13 @@ __ means children of the element
 
       <section class="main__section--to-do-section">
         <form class="main__section__add-task-form">
-          <label for="to-do-new-task-description">New Task description:</label>
+          <label
+            class="main__section__add-task-form-label"
+            for="to-do-new-task-description"
+            >New Task description:</label
+          >
           <input
+            class="main__section__add-task-form-input"
             type="text"
             id="to-do-new-task-description"
             name="name"
@@ -82,10 +87,12 @@ __ means children of the element
 
       <form action="" class="main__form--modal hidden">
         <h2>Set timer</h2>
-  
+
         <div>
           <div>
-            <label class="main__form__minutes-label" for="minutes">Minutes</label>
+            <label class="main__form__minutes-label" for="minutes"
+              >Minutes</label
+            >
             <label for="seconds">Seconds</label>
           </div>
           <div>
@@ -93,49 +100,50 @@ __ means children of the element
             <input type="number" id="seconds" max="60" min="0" name="seconds" />
           </div>
         </div>
-  
+
         <div class="main__form__description">
           <div><label for="description">Timer Description</label></div>
           <div><input type="text" id="description" name="name" /></div>
         </div>
-  
+
         <div>
           <div>
-            <label for="song-select"
-              >Choose alarm song</label
-            >
+            <label for="song-select">Choose alarm song</label>
           </div>
           <select id="song-select" name="songs">
             <option value="Piosenka jest dobra na wszystko">
               Piosenka jest dobra na wszystko
             </option>
-            <option value="beethoven-5th-symphony">Beethoven-5th-symphony</option>
+            <option value="beethoven-5th-symphony">
+              Beethoven-5th-symphony
+            </option>
           </select>
         </div>
-  
+
         <menu class="main__form__menu-buttons">
           <button class="main__form__btn-start" type="button">Start</button>
           <button class="main__form__btn-cancel" type="button">Cancel</button>
         </menu>
       </form>
-  
+
       <form class="main__form--modal2 hidden">
         <h2>Timer</h2>
-  
-        <div>Tu będzie ikona lub zdjęcie Timera</div> <!-- Maybe here give img tag or different tag -->
-  
+
+        <div>Tu będzie ikona lub zdjęcie Timera</div>
+        <!-- Maybe here give img tag or different tag -->
+
         <p>Pobierz description Timer</p>
         <p>Pobierz czas Timera</p>
-  
+
         <menu>
           <button class="main__form__btn-restart-timer">Restart timer</button>
           <button class="main__form__btn-ok">Ok</button>
         </menu>
       </form>
-  
+
       <aside class="main__form__overlay hidden"></aside>
     </main>
-    
+
     <footer>Author: Mateusz Ramotowski</footer>
   </body>
 </html>

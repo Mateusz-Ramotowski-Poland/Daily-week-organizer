@@ -1,25 +1,39 @@
 .main__section__add-task-form{
     align-items: center;
     background-color: rgb(227, 235, 235);
+    border-bottom: 3px solid white;
     color: blue;
     display: flex;
-    justify-content: space-around;
-    padding-bottom: 20px;  
+    flex-wrap: wrap;
+    justify-content:center;
+    padding: 20px 0px;  
+}
+.main__section__add-task-form-input, .main__section__add-task-form-label{
+    margin-right: 10px;
 }
 .main__section__to-do-element{
     align-items: center;
     background-color: rgb(240, 247, 247);
+    border-bottom: 3px solid white;
     color: blue;
     display: flex;
     justify-content: space-between;
-    padding: 0px 10px;
+    padding: 10px;
     text-align: left;   
+}
+.main__section__to-do-element:nth-last-of-type(1){
+    border-bottom: none;
 }
 .main__section__to-do-element:nth-of-type(2n), .main__section--to-do-section{
     background-color: rgb(227, 235, 235);
 }
-.main__section--to-do-section{
-    margin-left: 10px;
-}
+/* @media(max-width: 1000px){
+    .main__section__add-task-form{
+
+    }
+} */
+
+
+
 
 

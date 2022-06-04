@@ -10,7 +10,6 @@ import { showTime } from "./countdown-timers.js";
 ///////////////////////////////////////////Below all global variables///////////////////////////////////////////
 const btnFormCancel = document.querySelector(".main__form__btn-cancel");
 const btnFormStart = document.querySelector(".main__form__btn-start");
-
 const descriptionInput = document.querySelector('input[id="description"]');
 const formModal = document.querySelector(".main__form--modal");
 const minutesInput = formModal.querySelector('input[id="minutes"]');
@@ -28,7 +27,7 @@ btnFormStart.addEventListener("click", function (event) {
   const seconds = secondsInput.value.padStart(2, "0");
   nodeTimers[timerNumber].querySelector(
     ".main__section__timer-time"
-  ).textContent = `${minutes}:${seconds}`; 
+  ).textContent = `${minutes}:${seconds}`;
 
   nodeTimers[timerNumber].querySelector(
     ".main__section__timer-description"

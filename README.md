@@ -10,7 +10,7 @@ It's my own project. I made it from scratch. Live demo: [_here_](https://mateusz
 * [Contact](#contact)
 
 ## General Information
-It is an application helpful in organizing the day. 
+It is an application helpful in organizing the day. It's working well on all resolutions.
 
 ## Technologies Used
 Project is created with:
@@ -35,7 +35,7 @@ To-do-tasks section:
 
 ## Project Status
 The project is in progress. What I will do next:
-- make nice looking layout responsive to all resolutions.
+- fix bugs.
 - I am thinking about it...
 
 
@@ -54,35 +54,6 @@ Ideas:
 - help to organizing my workouts
 - log in/log out
 
-DOM:
-- EVENT DELEGATION
-- timers
-- closure
-- adding/cloning/removing nodes 
-
-alfa branch master  version 1.1:
--V 3 timery z różnymi stałymi czasami(1min, 2 min, 3min). Po kliknięciu na obszar timera timer liczy w dół od domyślnej wartości.
-
-beta  version 1.2
--V refaktoryzacja kodu wersji alfa
--V dodatkowo dodaj lub usuń ostatni timer (mogę dodać tyle timerów ilę chcę)
-
-version 1.3
--V add voice after timer reach 0;
-
--V when you add timer it should be clean without data 
--V test how it works and refactor your code
-
-Version 1.4
--V add button/buttons for setting the timer 
--V Add modal window (form) for timer editing
--V basic version of to-do-list(without local storage)
-- testing
-- Add modal window after time will reach 0
-- Testing
-- make nice looking layout for it
-- Testing
-
 In the next project start work with (At the beginning it will take more time but it is easier after the app gets bigger and bigger)
 1.V Good semantic HTML structure with proper tags.
 2.V Create standards for CSS classes, and divide CSS selectors for a few CSS files - it is easier to change something.
@@ -93,12 +64,14 @@ In the next project start work with (At the beginning it will take more time but
 7. CONCENTRATE ON ONE TASK - DO THAT TASK AND MAKE COMMIT WITH GOOD DESCRIPTION OF WHAT YOU DONE. START NEXT TASK......
 8. DIVIDE CODE INTO SMALL PIECE. wWRITE PIECE OF CODE. TEST IT WELL AND THEN GO TO WRITE NEXT PIECE OF CODE - MORE THINK FROM BEGINNING YOU WILL HAVE LESS BUGS AND FRUSTRATION LATER
 9. Selectors in CSS files in alphabetically order - it looks nicer and it is easier to search
+10. If your code is written well you don't need a comment. Comment should express knowledge that you can't express by your code. It is better to use meaningfull names for variables and functions than use comments
+11. It is very good to know and use design patterns.
 
 
 What should I fix, consider?
 0. dO RESPONSOVE LAYOUT ON ALL SCREEN SIZES
 1. Czy przycisk start w edycji timera powinienem restartować timer(w trakcie edycji może grać muzyka), albo przynajmnniej wyłączyć ,uzykę jeśli gra alarm - czy rozwiąże to formularz, który pojawi się gdy Timer dojdzie do zera?
-2. Przekroczenie wartości min i max minut i sekund przy edycji timera - da się to zrobić. Jak to rozwiązać?
+2. Przekroczenie wartości min i max minut i sekund przy edycji timera - da się to zrobić. Jak to rozwiązać? W space flight app działała mi walidacja - porównaj 2 rozwiązania.
 3. Nie działa dobrze przycisk delete timer - zatrzymuję piosenkę dla ostatniego timera zawsze dla następnych już nie.
 Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm na ostatnim naciśnij delete, potem ustaw alarm na ostatnim naciśnij delete.... znajdź ten bug. 
 4. Zrób main__form--modal2 w index.html . Dodaj wydarzenia do tego modala - po tym jak timer doliczy do 0 to wtedy ma sie on pojawić.
@@ -110,4 +83,5 @@ Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm
 9. Dodaj kolejny commit po dodaniu dalszych uwag przed zaczęciem pracy
 10. Failed to load resource: the server responded with a status of 404 (). Webpage can't download songs! 
 Uncaught (in promise) DOMException: The element has no supported sources - ten błąd wynika z niemożności załadowania piosenek. Dodaj obsługę błędów. Znajdź powód dlaczego to nie działa.
+11. Czy w todo.js nie powinienem pozbyć się zmiennej tasks i zamiast tego używać zmiennej savedLocalStorage (podobnie zrobiłem w space articles app - było to właściwe i działające podejście)? Mogę pomyśleć o zmianie nazwy savedLocalStorage.
 -->

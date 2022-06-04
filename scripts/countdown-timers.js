@@ -6,7 +6,6 @@ const btnAddTimer = document.querySelector(".main__section__btn-add-timer");
 const btnDeleteTimer = document.querySelector(
   ".main__section__btn-delete-timer"
 );
-
 export const nodeTimers = document.getElementsByClassName(
   "main__section__timer"
 ); // return HTML live collection
