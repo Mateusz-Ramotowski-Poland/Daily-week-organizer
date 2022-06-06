@@ -24,7 +24,7 @@ I was using Chrome developer tools for testing my application.
 Timer section:
 - You can add/delete timer. You can have from 1 to 5 timers. 
 - Click the start button to launch the timer.
-- Click the reset button to cancel the timer. 
+- Click the reset button to reset the timer settings. 
 - When the timer will reach zero You will hear the song.
 - You can edit the timer settings: time, description, and song/ringtone.
 
