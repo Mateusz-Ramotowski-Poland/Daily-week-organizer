@@ -23,7 +23,6 @@ btnAddTask.addEventListener("click", function (event) {
   event.preventDefault(); // I don't reload a page after submiting the form and also don't get validation messages, because of this
 
   if (!toDoDescriptionInput.checkValidity()) {
-    //using Constraint validation API
     toDoDescriptionInput.reportValidity();
     return;
   }

@@ -21,8 +21,12 @@ let timerNumber;
 ///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnFormCancel.addEventListener("click", hideForm);
 
-btnFormStart.addEventListener("click", function (event) {
-  hideForm();
+btnFormStart.addEventListener("click", function (event) { 
+  if (!(minutesInput.checkValidity() && secondsInput.checkValidity())) {
+    minutesInput.reportValidity();
+    secondsInput.reportValidity();
+    return;
+  }
   const minutes = minutesInput.value.padStart(2, "0");
   const seconds = secondsInput.value.padStart(2, "0");
   nodeTimers[timerNumber].querySelector(
@@ -38,6 +42,7 @@ btnFormStart.addEventListener("click", function (event) {
     : (timersSongs[timerNumber] = songAudioBeethoven);
 
   startNewTimer(event, "main__form__btn-start", timerNumber);
+  hideForm();
 });
 
 nodeTimersSection.addEventListener("click", function (event) {
