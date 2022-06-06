@@ -72,8 +72,6 @@ In the next project start work with (At the beginning it will take more time but
 What should I fix, consider?
 
 1. Czy przycisk start w edycji timera powinienem restartować timer(w trakcie edycji może grać muzyka), albo przynajmnniej wyłączyć ,uzykę jeśli gra alarm - czy rozwiąże to formularz, który pojawi się gdy Timer dojdzie do zera?
-3. Nie działa dobrze przycisk delete timer - zatrzymuję piosenkę dla ostatniego timera zawsze dla następnych już nie.
-Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm na ostatnim naciśnij delete, potem ustaw alarm na ostatnim naciśnij delete.... znajdź ten bug. 
 4. Zrób main__form--modal2 w index.html . Dodaj wydarzenia do tego modala - po tym jak timer doliczy do 0 to wtedy ma sie on pojawić. Ma działaś analogiznie jak przycisk reset button.
 7. Czy warto mieć main__form--modal2 i main__form--modal1 -  dwie klasy z identycznym stylowaniem. POmysl o powiazaniem tego z dodawaniem wydarzenia JS.
 10. Failed to load resource: the server responded with a status of 404 (). Webpage can't download songs! 
