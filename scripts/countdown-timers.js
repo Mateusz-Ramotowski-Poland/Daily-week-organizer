@@ -20,7 +20,7 @@ export const songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
 
 const timersId = [];
 export const timersSongs = [songAudioKabaret];
-export const timersTimes = ["20:00"];
+export const timersTimes = [baseTimerTime, baseTimerTime, baseTimerTime, baseTimerTime, baseTimerTime];
 ///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnAddTimer.addEventListener("click", function () {
   if (!(nodeTimers.length < maxNumberTimers)) return;
@@ -39,8 +39,8 @@ btnDeleteTimer.addEventListener("click", function () {
   if (!(nodeTimers.length > minNumberTimers)) return;
 
   deleteTimer(nodeTimers.length - 1);
+  pauseSong(nodeTimers.length - 1);
   nodeTimers.item(nodeTimers.length - 1).remove();
-  pauseSong(timersSongs.length - 1);
 });
 
 nodeTimersSection.addEventListener("click", startNewTimer);
