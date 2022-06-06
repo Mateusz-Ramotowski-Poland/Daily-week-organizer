@@ -18,8 +18,9 @@ export const songAudioKabaret = new Audio(
 );
 export const songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
 
-const timersId = []; // array of intervalID, which is a numeric, non-zero value which identifies the timer created
-export const timersSongs = []; // you should add default songs
+const timersId = [];
+export const timersSongs = [songAudioKabaret];
+export const timersTimes = ["20:00"];
 ///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnAddTimer.addEventListener("click", function () {
   if (!(nodeTimers.length < maxNumberTimers)) return;
@@ -31,6 +32,7 @@ btnAddTimer.addEventListener("click", function () {
     ".main__section__timer-description"
   ).textContent = "";
   nodeTimersSection.append(emptyNodeTimer);
+  timersSongs[nodeTimers.length - 1] = songAudioKabaret;
 });
 
 btnDeleteTimer.addEventListener("click", function () {
@@ -41,18 +43,18 @@ btnDeleteTimer.addEventListener("click", function () {
   pauseSong(timersSongs.length - 1);
 });
 
-nodeTimersSection.addEventListener("click", startNewTimer); // I used here event delegation, it is for main__section__btn-start
+nodeTimersSection.addEventListener("click", startNewTimer);
 
 nodeTimersSection.addEventListener("click", function (event) {
   if (!event.target.classList.contains("main__section__btn-reset")) return;
 
-  //Here I use Event delegation
   const timerNumber = getTimer(event);
   deleteTimer(timerNumber);
   pauseSong(timerNumber);
   event.target
     .closest(".main__section__timer")
-    .querySelector(".main__section__timer-time").textContent = baseTimerTime;
+    .querySelector(".main__section__timer-time").textContent =
+    timersTimes[timerNumber];
 });
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 function calculateTime(nodeTimerTime) {
@@ -78,7 +80,6 @@ function pauseSong(songPosition) {
   timersSongs[songPosition]?.paused === false
     ? timersSongs[songPosition].pause()
     : "";
-  timersSongs[songPosition] = null;
 }
 
 function setTimer(startTime, timerSetTime, nodeTimerTime, timerNumber) {

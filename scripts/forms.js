@@ -1,11 +1,12 @@
-import { nodeTimersSection } from "./countdown-timers.js";
 import { getTimer } from "./countdown-timers.js";
 import { nodeTimers } from "./countdown-timers.js";
-import { timersSongs } from "./countdown-timers.js";
+import { nodeTimersSection } from "./countdown-timers.js";
 import { songAudioKabaret } from "./countdown-timers.js";
 import { songAudioBeethoven } from "./countdown-timers.js";
 import { startNewTimer } from "./countdown-timers.js";
 import { showTime } from "./countdown-timers.js";
+import { timersSongs } from "./countdown-timers.js";
+import { timersTimes } from "./countdown-timers.js";
 
 ///////////////////////////////////////////Below all global variables///////////////////////////////////////////
 const btnFormCancel = document.querySelector(".main__form__btn-cancel");
@@ -21,7 +22,7 @@ let timerNumber;
 ///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnFormCancel.addEventListener("click", hideForm);
 
-btnFormStart.addEventListener("click", function (event) { 
+btnFormStart.addEventListener("click", function (event) {
   if (!(minutesInput.checkValidity() && secondsInput.checkValidity())) {
     minutesInput.reportValidity();
     secondsInput.reportValidity();
@@ -42,6 +43,7 @@ btnFormStart.addEventListener("click", function (event) {
     : (timersSongs[timerNumber] = songAudioBeethoven);
 
   startNewTimer(event, "main__form__btn-start", timerNumber);
+  timersTimes[timerNumber] = `${minutes}:${seconds}`;
   hideForm();
 });
 

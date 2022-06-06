@@ -75,10 +75,7 @@ What should I fix, consider?
 3. Nie działa dobrze przycisk delete timer - zatrzymuję piosenkę dla ostatniego timera zawsze dla następnych już nie.
 Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm na ostatnim naciśnij delete, potem ustaw alarm na ostatnim naciśnij delete.... znajdź ten bug. 
 4. Zrób main__form--modal2 w index.html . Dodaj wydarzenia do tego modala - po tym jak timer doliczy do 0 to wtedy ma sie on pojawić.
-6. Inne zachowanie po wcisnieciu restart timer btn  - włącz timer z danymi, które były poprxednio: Utwórx dwie nowe tabele dla cxasów i description(?). Może użyj do tego przycisku  z main__form--modal2 - lub obu wymienionych przycisków.
 7. Czy warto mieć main__form--modal2 i main__form--modal1 -  dwie klasy z identycznym stylowaniem. POmysl o powiazaniem tego z dodawaniem wydarzenia JS.
-8. Uncaught TypeError: Cannot set properties of null (setting 'currentTime')
-    at countdown-timers.js:92:42 Dodaj warunek. Czyu można przewinąć piosenkę, która nie grała ? 
 10. Failed to load resource: the server responded with a status of 404 (). Webpage can't download songs! 
 Uncaught (in promise) DOMException: The element has no supported sources - ten błąd wynika z niemożności załadowania piosenek. Dodaj obsługę błędów. Znajdź powód dlaczego to nie działa.
 -->
