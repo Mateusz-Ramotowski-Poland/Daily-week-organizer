@@ -66,16 +66,16 @@ In the next project start work with (At the beginning it will take more time but
 9. Selectors in CSS files in alphabetically order - it looks nicer and it is easier to search
 10. If your code is written well you don't need a comment. Comment should express knowledge that you can't express by your code. It is better to use meaningfull names for variables and functions than use comments
 11. It is very good to know and use design patterns.
+12. Uncle Bob encourages pair programming. Think if I can do it?
 
 
 What should I fix, consider?
-0. dO RESPONSOVE LAYOUT ON ALL SCREEN SIZES
+
 1. Czy przycisk start w edycji timera powinienem restartować timer(w trakcie edycji może grać muzyka), albo przynajmnniej wyłączyć ,uzykę jeśli gra alarm - czy rozwiąże to formularz, który pojawi się gdy Timer dojdzie do zera?
 2. Przekroczenie wartości min i max minut i sekund przy edycji timera - da się to zrobić. Jak to rozwiązać? W space flight app działała mi walidacja - porównaj 2 rozwiązania.
 3. Nie działa dobrze przycisk delete timer - zatrzymuję piosenkę dla ostatniego timera zawsze dla następnych już nie.
 Utwórze 5 timerów. ustaw alarm na ostatnim naciśnij delete. potem ustaw alarm na ostatnim naciśnij delete, potem ustaw alarm na ostatnim naciśnij delete.... znajdź ten bug. 
 4. Zrób main__form--modal2 w index.html . Dodaj wydarzenia do tego modala - po tym jak timer doliczy do 0 to wtedy ma sie on pojawić.
-5. Use program to make songs shorter - less to download
 6. Inne zachowanie po wcisnieciu restart timer btn  - włącz timer z danymi, które były poprxednio: Utwórx dwie nowe tabele dla cxasów i description(?). Może użyj do tego przycisku  z main__form--modal2 - lub obu wymienionych przycisków.
 7. Czy warto mieć main__form--modal2 i main__form--modal1 -  dwie klasy z identycznym stylowaniem. POmysl o powiazaniem tego z dodawaniem wydarzenia JS.
 8. Uncaught TypeError: Cannot set properties of null (setting 'currentTime')
