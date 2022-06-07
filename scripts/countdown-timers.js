@@ -12,15 +12,26 @@ export const nodeTimers = document.getElementsByClassName(
 export const nodeTimersSection = document.querySelector(
   ".main__section__timers"
 ); // return static NodeList
+export const formModals = document.querySelectorAll(".main__form--modal");
+export const formModalEditTimer = formModals[0];
+export const formModalRestartTimer = formModals[1];
+export const overlay = document.querySelector(".main__form__overlay");
 
 export const songAudioKabaret = new Audio(
   "songs/piosenka-jest-dobra-na-wszystko.mp3"
 );
 export const songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
 
+export const timersDescription = [];
 const timersId = [];
 export const timersSongs = [songAudioKabaret];
-export const timersTimes = [baseTimerTime, baseTimerTime, baseTimerTime, baseTimerTime, baseTimerTime];
+export const timersTimes = [
+  baseTimerTime,
+  baseTimerTime,
+  baseTimerTime,
+  baseTimerTime,
+  baseTimerTime,
+];
 ///////////////////////////////////////////Below All adEventListener///////////////////////////////////////////
 btnAddTimer.addEventListener("click", function () {
   if (!(nodeTimers.length < maxNumberTimers)) return;
@@ -63,7 +74,7 @@ function calculateTime(nodeTimerTime) {
   return minutes * 60 * 1000 + seconds * 1000; // time in miliseconds
 }
 
-function deleteTimer(timerNumber) {
+export function deleteTimer(timerNumber) {
   clearInterval(timersId[timerNumber]);
   timersId[timerNumber] = null;
 }
@@ -76,7 +87,7 @@ export function getTimer(event) {
   }
 }
 
-function pauseSong(songPosition) {
+export function pauseSong(songPosition) {
   timersSongs[songPosition]?.paused === false
     ? timersSongs[songPosition].pause()
     : "";
@@ -91,6 +102,8 @@ function setTimer(startTime, timerSetTime, nodeTimerTime, timerNumber) {
     deleteTimer(timerNumber);
     timersSongs[timerNumber].currentTime = 0; // rewind the song to the beginning, 0 seconds
     timersSongs[timerNumber].play();
+
+    showRestartTimerForm(timerNumber);
   }, 1000);
 }
 
@@ -99,6 +112,17 @@ export function showTime(timerTime, nodeTimerTime) {
   let seconds = `${Math.trunc((timerTime / 1000) % 60)}`.padStart(2, "0");
   seconds[0] === "-" ? (seconds = "00") : ""; // because of this line I don't have minus value of seconds
   nodeTimerTime.textContent = `${minutes}:${seconds}`;
+}
+
+function showRestartTimerForm(timerNumber) {
+
+  formModalRestartTimer.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  document.querySelector(".main__form__restart-timer-description").textContent =
+    timersDescription[timerNumber];
+  document.querySelector(".main__form__restart-timer-time").textContent =
+    timersTimes[timerNumber];
+  document.querySelector('.main__form__btn-restart-timer').dataset.timerNumber = timerNumber;
 }
 
 export function startNewTimer(

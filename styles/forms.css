@@ -13,7 +13,7 @@ input, select{
 .main__form__minutes-label, #minutes{
     margin-right: 10px;
 }
-.main__form--modal, .main__form--modal2 {
+.main__form--modal {
     background-color: rgb(232, 240, 212);   
     border-radius: 10px;   
     left: 35%;    
