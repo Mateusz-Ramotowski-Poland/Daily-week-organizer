@@ -27,11 +27,7 @@
 .main__section__to-do-element:nth-of-type(2n), .main__section--to-do-section{
     background-color: rgb(227, 235, 235);
 }
-/* @media(max-width: 1000px){
-    .main__section__add-task-form{
 
-    }
-} */
 
 
 
