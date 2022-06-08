@@ -21,9 +21,7 @@ export let songAudioKabaret = new Audio(
   "songs/piosenka-jest-dobra-na-wszystko.mp3"
 );
 checkIfDownloadingErrorAndHandleError(songAudioKabaret);
-export let songAudioBeethoven = new Audio(
-  "songs/beethoven-5th-symphony.mp3"
-);
+export let songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
 checkIfDownloadingErrorAndHandleError(songAudioBeethoven);
 
 export const timersDescription = [];
@@ -105,7 +103,6 @@ function setTimer(startTime, timerSetTime, nodeTimerTime, timerNumber) {
 
     deleteTimer(timerNumber);
     timersSongs[timerNumber].currentTime = 0; // rewind the song to the beginning, 0 seconds
-    console.log(typeof songAudioKabaret.duration, songAudioKabaret.duration);
     timersSongs[timerNumber].play();
 
     showRestartTimerForm(timerNumber);
@@ -158,12 +155,16 @@ const headerTag = document.querySelector("header");
 function checkIfDownloadingErrorAndHandleError(downloadedSong) {
   setTimeout(function () {
     if (Number.isNaN(downloadedSong.duration)) {
-      console.dir(downloadedSong);
-      const startString = downloadedSong.src.indexOf("song");
-      const songSrc = downloadedSong.src.substring(startString);
+      // example of downloadedSong.src: 'http://127.0.0.1:5501/songs/beethoven-5th-symphony.mp3'
+      const startSrc = downloadedSong.src.indexOf("song");
+      const songSrc = downloadedSong.src.substring(startSrc);
+      const songName = downloadedSong.src.substring(
+        startSrc + 6,
+        downloadedSong.src.length - 4
+      );
       const errorTag = `
       <menu class="header__menu--error-menu" data-song-src="${songSrc}">
-          <p class="header__menu__error-message">Error during downloading a song ${songSrc}.</p>
+          <p class="header__menu__error-message">Error during downloading a song ${songName}</p>
           <button class="header__menu__btn-download-again">Download Again</button>
           <button class="header__menu__btn-ok">Ok</button>
       </menu>
@@ -177,28 +178,39 @@ headerTag.addEventListener("click", function (event) {
   if (!event.target.classList.contains("header__menu__btn-download-again"))
     return;
 
-  const menuErrorMessageTag = event.target.closest(".header__menu--error-menu");
-  menuErrorMessageTag.remove();
-  const songToDownloadSrc = menuErrorMessageTag.dataset.songSrc;
-  if (songToDownloadSrc === "songs/beethoven-5th-symphony.mp3") {
-    songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
-    checkIfDownloadingErrorAndHandleError(songAudioBeethoven);
-    console.log(songAudioBeethoven);
-  }
-  if (songToDownloadSrc === "songs/piosenka-jest-dobra-na-wszystko.mp3") {
-    songAudioKabaret = new Audio("songs/piosenka-jest-dobra-na-wszystko.mp3");
-    checkIfDownloadingErrorAndHandleError(songAudioKabaret);
-    console.log(songAudioKabaret);
-  }
+  removeMenuErrorTag(event);
+  const songToDownloadSrc = event.target.closest(".header__menu--error-menu").dataset.songSrc;
 
+  checkSongSrcAndDownloadWithErrorHandling(
+    songToDownloadSrc,
+    "songs/beethoven-5th-symphony.mp3",
+    songAudioBeethoven
+  );
+  checkSongSrcAndDownloadWithErrorHandling(
+    songToDownloadSrc,
+    "songs/piosenka-jest-dobra-na-wszystko.mp3",
+    songAudioKabaret
+  );
 });
+
 headerTag.addEventListener("click", function (event) {
   if (!event.target.classList.contains("header__menu__btn-ok")) return;
 
-  event.target.closest(".header__menu--error-menu").remove();
+  removeMenuErrorTag(event);
 });
-///////////////////////////
-// To do: wyświetl tytuł piosenki w error message menu
-// sprawdz działanie kodu - zasymuluj błąd. Czy jest sens tworzenia małej funckji do usunięcia error message
-// refaktoryzuj kod
-// 
+
+function removeMenuErrorTag(event) {
+  event.target.closest(".header__menu--error-menu").remove();
+}
+
+function checkSongSrcAndDownloadWithErrorHandling(
+  songToDownloadSrc,
+  songSrc,
+  downloadedSong
+) {
+  if (songToDownloadSrc === songSrc) {
+    downloadedSong = new Audio(songToDownloadSrc);
+    checkIfDownloadingErrorAndHandleError(downloadedSong);
+  }
+}
+

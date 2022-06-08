@@ -70,8 +70,6 @@ In the next project start work with (At the beginning it will take more time but
 
 
 What should I fix, consider?
-10. Failed to load resource: the server responded with a status of 404 (). Webpage can't download songs! 
-Uncaught (in promise) DOMException: The element has no supported sources - ten błąd wynika z niemożności załadowania piosenek. Dodaj obsługę błędów. Znajdź powód dlaczego to nie działa.
 12. Po kliknięciu w overlay nie resetuję form2 restart timer. Jakie ma to konsekwencje? Czy musze to zmieniać?
 13. Przetestuj aplikację tak jak umiem. 
 14. Napisz przyciągające uwagę i zrozumiałe README.md
