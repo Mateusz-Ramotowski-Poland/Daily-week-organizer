@@ -1,0 +1,10 @@
+.header__menu__btn-download-again, .header__menu__error-message{
+    margin-right: 10px;
+}
+.header__menu--error-menu{
+    align-items: center;
+    background-color: rgb(228, 98, 98);
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+}

@@ -17,10 +17,14 @@ export const formModalEditTimer = formModals[0];
 export const formModalRestartTimer = formModals[1];
 export const overlay = document.querySelector(".main__form__overlay");
 
-export const songAudioKabaret = new Audio(
+export let songAudioKabaret = new Audio(
   "songs/piosenka-jest-dobra-na-wszystko.mp3"
 );
-export const songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
+checkIfDownloadingErrorAndHandleError(songAudioKabaret);
+export let songAudioBeethoven = new Audio(
+  "songs/beethoven-5th-symphony.mp3"
+);
+checkIfDownloadingErrorAndHandleError(songAudioBeethoven);
 
 export const timersDescription = [];
 const timersId = [];
@@ -101,6 +105,7 @@ function setTimer(startTime, timerSetTime, nodeTimerTime, timerNumber) {
 
     deleteTimer(timerNumber);
     timersSongs[timerNumber].currentTime = 0; // rewind the song to the beginning, 0 seconds
+    console.log(typeof songAudioKabaret.duration, songAudioKabaret.duration);
     timersSongs[timerNumber].play();
 
     showRestartTimerForm(timerNumber);
@@ -115,14 +120,14 @@ export function showTime(timerTime, nodeTimerTime) {
 }
 
 function showRestartTimerForm(timerNumber) {
-
   formModalRestartTimer.classList.remove("hidden");
   overlay.classList.remove("hidden");
   document.querySelector(".main__form__restart-timer-description").textContent =
     timersDescription[timerNumber];
   document.querySelector(".main__form__restart-timer-time").textContent =
     timersTimes[timerNumber];
-  document.querySelector('.main__form__btn-restart-timer').dataset.timerNumber = timerNumber;
+  document.querySelector(".main__form__btn-restart-timer").dataset.timerNumber =
+    timerNumber;
 }
 
 export function startNewTimer(
@@ -147,3 +152,53 @@ export function startNewTimer(
     timerNumber
   );
 }
+//////////////////////////////////below my playground////////////////////////////////
+const headerTag = document.querySelector("header");
+
+function checkIfDownloadingErrorAndHandleError(downloadedSong) {
+  setTimeout(function () {
+    if (Number.isNaN(downloadedSong.duration)) {
+      console.dir(downloadedSong);
+      const startString = downloadedSong.src.indexOf("song");
+      const songSrc = downloadedSong.src.substring(startString);
+      const errorTag = `
+      <menu class="header__menu--error-menu" data-song-src="${songSrc}">
+          <p class="header__menu__error-message">Error during downloading a song ${songSrc}.</p>
+          <button class="header__menu__btn-download-again">Download Again</button>
+          <button class="header__menu__btn-ok">Ok</button>
+      </menu>
+      `;
+      headerTag.insertAdjacentHTML("beforeend", errorTag);
+    }
+  }, 12000);
+}
+
+headerTag.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("header__menu__btn-download-again"))
+    return;
+
+  const menuErrorMessageTag = event.target.closest(".header__menu--error-menu");
+  menuErrorMessageTag.remove();
+  const songToDownloadSrc = menuErrorMessageTag.dataset.songSrc;
+  if (songToDownloadSrc === "songs/beethoven-5th-symphony.mp3") {
+    songAudioBeethoven = new Audio("songs/beethoven-5th-symphony.mp3");
+    checkIfDownloadingErrorAndHandleError(songAudioBeethoven);
+    console.log(songAudioBeethoven);
+  }
+  if (songToDownloadSrc === "songs/piosenka-jest-dobra-na-wszystko.mp3") {
+    songAudioKabaret = new Audio("songs/piosenka-jest-dobra-na-wszystko.mp3");
+    checkIfDownloadingErrorAndHandleError(songAudioKabaret);
+    console.log(songAudioKabaret);
+  }
+
+});
+headerTag.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("header__menu__btn-ok")) return;
+
+  event.target.closest(".header__menu--error-menu").remove();
+});
+///////////////////////////
+// To do: wyświetl tytuł piosenki w error message menu
+// sprawdz działanie kodu - zasymuluj błąd. Czy jest sens tworzenia małej funckji do usunięcia error message
+// refaktoryzuj kod
+// 

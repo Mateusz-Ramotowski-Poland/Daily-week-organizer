@@ -12,10 +12,10 @@ button{
 .main__section__btn-delete-task{
     margin-left: 10px;
 }
-.main__form__btn-start, .main__section__btn-add-task, .main__section__btn-add-timer,.main__form__btn-ok, .main__section__btn-start{
+.header__menu__btn-ok, .main__form__btn-start, .main__section__btn-add-task, .main__section__btn-add-timer,.main__form__btn-ok, .main__section__btn-start{
     background-color:rgb(109, 205, 14);
 }
-.main__section__btn-edit, .main__form__btn-restart-timer{
+.header__menu__btn-download-again, .main__section__btn-edit, .main__form__btn-restart-timer{
     background-color:rgb(21, 8, 168);
 }
 .main__section__btn-reset{

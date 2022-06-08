@@ -75,4 +75,5 @@ Uncaught (in promise) DOMException: The element has no supported sources - ten b
 12. Po kliknięciu w overlay nie resetuję form2 restart timer. Jakie ma to konsekwencje? Czy musze to zmieniać?
 13. Przetestuj aplikację tak jak umiem. 
 14. Napisz przyciągające uwagę i zrozumiałe README.md
+15. Daily organizer: Failed to load resource: the server responded with a status of 404 (). Timer webp image
 -->
