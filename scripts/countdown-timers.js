@@ -6,6 +6,7 @@ const btnAddTimer = document.querySelector(".main__section__btn-add-timer");
 const btnDeleteTimer = document.querySelector(
   ".main__section__btn-delete-timer"
 );
+const headerTag = document.querySelector("header");
 export const nodeTimers = document.getElementsByClassName(
   "main__section__timer"
 ); // return HTML live collection
@@ -69,11 +70,69 @@ nodeTimersSection.addEventListener("click", function (event) {
     .querySelector(".main__section__timer-time").textContent =
     timersTimes[timerNumber];
 });
+
+headerTag.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("header__menu__btn-ok")) return;
+
+  removeMenuErrorTag(event);
+});
+
+headerTag.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("header__menu__btn-download-again"))
+    return;
+
+  removeMenuErrorTag(event);
+  const songToDownloadSrc = event.target.closest(".header__menu--error-menu").dataset.songSrc;
+
+  checkSongSrcAndDownloadWithErrorHandling(
+    songToDownloadSrc,
+    "songs/beethoven-5th-symphony.mp3",
+    songAudioBeethoven
+  );
+  checkSongSrcAndDownloadWithErrorHandling(
+    songToDownloadSrc,
+    "songs/piosenka-jest-dobra-na-wszystko.mp3",
+    songAudioKabaret
+  );
+});
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 function calculateTime(nodeTimerTime) {
   const minutes = parseInt(nodeTimerTime.textContent.substring(0, 2));
   const seconds = parseInt(nodeTimerTime.textContent.substring(3));
   return minutes * 60 * 1000 + seconds * 1000; // time in miliseconds
+}
+
+function checkIfDownloadingErrorAndHandleError(downloadedSong) {
+  setTimeout(function () {
+    if (Number.isNaN(downloadedSong.duration)) {
+      // example of downloadedSong.src: 'http://127.0.0.1:5501/songs/beethoven-5th-symphony.mp3'
+      const startSrc = downloadedSong.src.indexOf("song");
+      const songSrc = downloadedSong.src.substring(startSrc);
+      const songName = downloadedSong.src.substring(
+        startSrc + 6,
+        downloadedSong.src.length - 4
+      );
+      const errorTag = `
+      <menu class="header__menu--error-menu" data-song-src="${songSrc}">
+          <p class="header__menu__error-message">Error during downloading a song ${songName}</p>
+          <button class="header__menu__btn-download-again">Download Again</button>
+          <button class="header__menu__btn-ok">Ok</button>
+      </menu>
+      `;
+      headerTag.insertAdjacentHTML("beforeend", errorTag);
+    }
+  }, 12000);
+}
+
+function checkSongSrcAndDownloadWithErrorHandling(
+  songToDownloadSrc,
+  songSrc,
+  downloadedSong
+) {
+  if (songToDownloadSrc === songSrc) {
+    downloadedSong = new Audio(songToDownloadSrc);
+    checkIfDownloadingErrorAndHandleError(downloadedSong);
+  }
 }
 
 export function deleteTimer(timerNumber) {
@@ -93,6 +152,10 @@ export function pauseSong(songPosition) {
   timersSongs[songPosition]?.paused === false
     ? timersSongs[songPosition].pause()
     : "";
+}
+
+function removeMenuErrorTag(event) {
+  event.target.closest(".header__menu--error-menu").remove();
 }
 
 function setTimer(startTime, timerSetTime, nodeTimerTime, timerNumber) {
@@ -149,68 +212,10 @@ export function startNewTimer(
     timerNumber
   );
 }
-//////////////////////////////////below my playground////////////////////////////////
-const headerTag = document.querySelector("header");
 
-function checkIfDownloadingErrorAndHandleError(downloadedSong) {
-  setTimeout(function () {
-    if (Number.isNaN(downloadedSong.duration)) {
-      // example of downloadedSong.src: 'http://127.0.0.1:5501/songs/beethoven-5th-symphony.mp3'
-      const startSrc = downloadedSong.src.indexOf("song");
-      const songSrc = downloadedSong.src.substring(startSrc);
-      const songName = downloadedSong.src.substring(
-        startSrc + 6,
-        downloadedSong.src.length - 4
-      );
-      const errorTag = `
-      <menu class="header__menu--error-menu" data-song-src="${songSrc}">
-          <p class="header__menu__error-message">Error during downloading a song ${songName}</p>
-          <button class="header__menu__btn-download-again">Download Again</button>
-          <button class="header__menu__btn-ok">Ok</button>
-      </menu>
-      `;
-      headerTag.insertAdjacentHTML("beforeend", errorTag);
-    }
-  }, 12000);
-}
 
-headerTag.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("header__menu__btn-download-again"))
-    return;
 
-  removeMenuErrorTag(event);
-  const songToDownloadSrc = event.target.closest(".header__menu--error-menu").dataset.songSrc;
 
-  checkSongSrcAndDownloadWithErrorHandling(
-    songToDownloadSrc,
-    "songs/beethoven-5th-symphony.mp3",
-    songAudioBeethoven
-  );
-  checkSongSrcAndDownloadWithErrorHandling(
-    songToDownloadSrc,
-    "songs/piosenka-jest-dobra-na-wszystko.mp3",
-    songAudioKabaret
-  );
-});
 
-headerTag.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("header__menu__btn-ok")) return;
 
-  removeMenuErrorTag(event);
-});
-
-function removeMenuErrorTag(event) {
-  event.target.closest(".header__menu--error-menu").remove();
-}
-
-function checkSongSrcAndDownloadWithErrorHandling(
-  songToDownloadSrc,
-  songSrc,
-  downloadedSong
-) {
-  if (songToDownloadSrc === songSrc) {
-    downloadedSong = new Audio(songToDownloadSrc);
-    checkIfDownloadingErrorAndHandleError(downloadedSong);
-  }
-}
 
