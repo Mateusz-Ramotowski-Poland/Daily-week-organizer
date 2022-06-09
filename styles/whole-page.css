@@ -1,3 +1,14 @@
+/*  CSS class names standard
+__ means children of the element
+-- means variation of the element
+
+  CSS class pattern:
+  ChildOfBodyTag__ChilfOfChildOfBodyTag__or--TagfunctionalityOFClass(use '-'' between words) ;examples below:
+  main__section--timers-section
+  main__section__btn-add-timer
+
+  Only one exception to this rule:
+  hidden class - property display:none   */
 body{
     font-family: 'Open Sans', sans-serif;
     font-size: 22px;

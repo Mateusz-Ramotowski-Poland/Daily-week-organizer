@@ -1,4 +1,3 @@
-/* import { formModals } from "./countdown-timers.js"; */
 import { deleteTimer } from "./countdown-timers.js";
 import { formModalEditTimer } from "./countdown-timers.js";
 import { formModalRestartTimer } from "./countdown-timers.js";

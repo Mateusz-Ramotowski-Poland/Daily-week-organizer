@@ -1,16 +1,3 @@
-<!-- CSS class names standard
-  I will use this BEM (for Block-Element-Modifier) implementation - http://bdavidxyz.com/blog/how-to-name-css-classes/
-__ means children of the element
--- means variation of the element
-
-  CSS class pattern:
-  ChildOfBodyTag__ChilfOfChildOfBodyTag__or--TagfunctionalityOFClass(use - between words not camel case) ;examples below:
-  main__section--timers-section
-  main__section__btn-add-timer
-
-  CSS class pattern: only for one property inside class ;example
-  hidden class - property display:none
- -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -96,9 +83,24 @@ __ means children of the element
             >
             <label for="seconds">Seconds</label>
           </div>
+
           <div>
-            <input type="number" id="minutes" max="60" min="0" name="minutes" required/>
-            <input type="number" id="seconds" max="60" min="0" name="seconds" required/>
+            <input
+              type="number"
+              id="minutes"
+              max="60"
+              min="0"
+              name="minutes"
+              required
+            />
+            <input
+              type="number"
+              id="seconds"
+              max="60"
+              min="0"
+              name="seconds"
+              required
+            />
           </div>
         </div>
 
@@ -130,13 +132,22 @@ __ means children of the element
       <form class="main__form--modal hidden">
         <h2>Timer</h2>
 
-        <img src="images/timer.webp" alt="timer icon" width="100px" height="100px">
+        <img
+          src="images/timer.webp"
+          alt="timer icon"
+          width="100px"
+          height="100px"
+        />
 
-        <p class="main__form__restart-timer-description">Pobierz description Timer</p>
+        <p class="main__form__restart-timer-description">
+          Pobierz description Timer
+        </p>
         <p class="main__form__restart-timer-time">Pobierz czas Timera</p>
 
         <menu>
-          <button class="main__form__btn-restart-timer" data-timer-number="">Restart timer</button>
+          <button class="main__form__btn-restart-timer" data-timer-number="">
+            Restart timer
+          </button>
           <button class="main__form__btn-ok">Ok</button>
         </menu>
       </form>

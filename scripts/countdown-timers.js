@@ -12,7 +12,7 @@ export const nodeTimers = document.getElementsByClassName(
 ); // return HTML live collection
 export const nodeTimersSection = document.querySelector(
   ".main__section__timers"
-); // return static NodeList
+); 
 export const formModals = document.querySelectorAll(".main__form--modal");
 export const formModalEditTimer = formModals[0];
 export const formModalRestartTimer = formModals[1];
@@ -83,20 +83,6 @@ headerTag.addEventListener("click", function (event) {
 
   removeMenuErrorTag(event);
   const songToDownloadSrc = event.target.closest(".header__menu--error-menu").dataset.songSrc;
-  console.log(typeof songToDownloadSrc, songToDownloadSrc);
-
-
-/*   function checkSongSrcAndDownloadWithErrorHandling(
-    songToDownloadSrc,
-    songSrc,
-    downloadedSong
-  ) {
-    if (songToDownloadSrc === songSrc) {
-      downloadedSong = new Audio(songToDownloadSrc);
-      checkIfDownloadingErrorAndHandleError(downloadedSong);
-    }
-  } */
-
 
   if (songToDownloadSrc === "songs/piosenka-jest-dobra-na-wszystko.mp3") {
     songAudioKabaret = new Audio(songToDownloadSrc);
@@ -108,16 +94,6 @@ headerTag.addEventListener("click", function (event) {
     checkIfDownloadingErrorAndHandleError(songAudioBeethoven);
   }
 
-/*   checkSongSrcAndDownloadWithErrorHandling(
-    songToDownloadSrc,
-    "songs/beethoven-5th-symphony.mp3",
-    songAudioBeethoven
-  );
-  checkSongSrcAndDownloadWithErrorHandling(
-    songToDownloadSrc,
-    "songs/piosenka-jest-dobra-na-wszystko.mp3",
-    songAudioKabaret
-  ); */
 });
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 function calculateTime(nodeTimerTime) {
@@ -178,7 +154,7 @@ function setTimer(startTime, timerSetTime, nodeTimerTime, timerNumber) {
     if (passedTime < timerSetTime) return;
 
     deleteTimer(timerNumber);
-    timersSongs[timerNumber].currentTime = 0; // rewind the song to the beginning, 0 seconds
+    timersSongs[timerNumber].currentTime = 0; 
     timersSongs[timerNumber].play();
 
     showRestartTimerForm(timerNumber);
@@ -188,7 +164,7 @@ function setTimer(startTime, timerSetTime, nodeTimerTime, timerNumber) {
 export function showTime(timerTime, nodeTimerTime) {
   const minutes = `${Math.trunc(timerTime / (60 * 1000))}`.padStart(2, "0");
   let seconds = `${Math.trunc((timerTime / 1000) % 60)}`.padStart(2, "0");
-  seconds[0] === "-" ? (seconds = "00") : ""; // because of this line I don't have minus value of seconds
+  seconds[0] === "-" ? (seconds = "00") : ""; 
   nodeTimerTime.textContent = `${minutes}:${seconds}`;
 }
 
@@ -214,7 +190,7 @@ export function startNewTimer(
     ".main__section__timer-time"
   );
 
-  let timerSetTime = calculateTime(nodeTimerTime); // time in miliseconds
+  let timerSetTime = calculateTime(nodeTimerTime); 
   if (timersId[timerNumber]) {
     deleteTimer(timerNumber);
   }
