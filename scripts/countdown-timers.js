@@ -83,8 +83,32 @@ headerTag.addEventListener("click", function (event) {
 
   removeMenuErrorTag(event);
   const songToDownloadSrc = event.target.closest(".header__menu--error-menu").dataset.songSrc;
+  console.log(typeof songToDownloadSrc, songToDownloadSrc);
 
-  checkSongSrcAndDownloadWithErrorHandling(
+
+/*   function checkSongSrcAndDownloadWithErrorHandling(
+    songToDownloadSrc,
+    songSrc,
+    downloadedSong
+  ) {
+    if (songToDownloadSrc === songSrc) {
+      downloadedSong = new Audio(songToDownloadSrc);
+      checkIfDownloadingErrorAndHandleError(downloadedSong);
+    }
+  } */
+
+
+  if (songToDownloadSrc === "songs/piosenka-jest-dobra-na-wszystko.mp3") {
+    songAudioKabaret = new Audio(songToDownloadSrc);
+    checkIfDownloadingErrorAndHandleError(songAudioKabaret);
+  }
+
+  if (songToDownloadSrc === "songs/beethoven-5th-symphony.mp3") {
+    songAudioBeethoven = new Audio(songToDownloadSrc);
+    checkIfDownloadingErrorAndHandleError(songAudioBeethoven);
+  }
+
+/*   checkSongSrcAndDownloadWithErrorHandling(
     songToDownloadSrc,
     "songs/beethoven-5th-symphony.mp3",
     songAudioBeethoven
@@ -93,7 +117,7 @@ headerTag.addEventListener("click", function (event) {
     songToDownloadSrc,
     "songs/piosenka-jest-dobra-na-wszystko.mp3",
     songAudioKabaret
-  );
+  ); */
 });
 ///////////////////////////////////////////Below All function declarations///////////////////////////////////////////
 function calculateTime(nodeTimerTime) {
@@ -122,17 +146,6 @@ function checkIfDownloadingErrorAndHandleError(downloadedSong) {
       headerTag.insertAdjacentHTML("beforeend", errorTag);
     }
   }, 12000);
-}
-
-function checkSongSrcAndDownloadWithErrorHandling(
-  songToDownloadSrc,
-  songSrc,
-  downloadedSong
-) {
-  if (songToDownloadSrc === songSrc) {
-    downloadedSong = new Audio(songToDownloadSrc);
-    checkIfDownloadingErrorAndHandleError(downloadedSong);
-  }
 }
 
 export function deleteTimer(timerNumber) {
